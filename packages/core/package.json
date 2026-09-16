@@ -1,0 +1,11 @@
+{
+  "name": "@abp/core",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.Core: DI container, modularity, options, configuration, logging, ambient scopes",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "types": "./src/index.ts",
+  "scripts": { "build": "tsc -p tsconfig.json" },
+  "sideEffects": true
+}

@@ -1,0 +1,28 @@
+{
+  "name": "new-abp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TypeScript + serverless AWS port of the ABP framework (abp.io)",
+  "license": "LGPL-3.0",
+  "packageManager": "pnpm@11.9.0",
+  "engines": { "node": ">=22" },
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "build": "pnpm -r --filter './packages/**' --filter './modules/**' run build",
+    "dev": "pnpm --filter @abp/template-app dev",
+    "deploy": "pnpm --filter @abp/template-app deploy",
+    "check": "pnpm typecheck && pnpm test && pnpm lint"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.3",
+    "eslint": "^9.39.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.70.0",
+    "tsx": "^4.23.13",
+    "vitest": "^4.0.0"
+  }
+}

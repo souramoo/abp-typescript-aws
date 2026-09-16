@@ -1,0 +1,11 @@
+packages:
+  - "packages/*"
+  - "modules/*"
+  - "templates/*"
+  - "infra"
+
+allowBuilds:
+  esbuild: true
+  "@aws-sdk/*": false
+
+minimumReleaseAge: 0
