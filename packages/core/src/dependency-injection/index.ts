@@ -5,3 +5,4 @@ export * from "./interception.js";
 export * from "./object-accessor.js";
 export * from "./service-collection.js";
 export * from "./service-provider.js";
+export * from "./markers.js";

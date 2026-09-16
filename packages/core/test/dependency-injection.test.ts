@@ -203,3 +203,29 @@ describe("AbpApplication", () => {
     expect(app.services.getDescriptors(Greeter)[0]?.lifetime).toBe(ServiceLifetime.Transient);
   });
 });
+
+import { createClassMarker, createMethodMetadata, getMethodNames } from "../src/index.js";
+describe("markers", () => {
+  it("class markers are inherited and method metadata walks prototypes", () => {
+    const Marker = createClassMarker("Test");
+    @Marker()
+    class Base {
+      a(): void {}
+    }
+    class Child extends Base {
+      b(): void {}
+    }
+    class Other {}
+    expect(Marker.has(Child)).toBe(true);
+    expect(Marker.has(Other)).toBe(false);
+    const Meta = createMethodMetadata<{ on: boolean }>("Meta");
+    class M {
+      @Meta({ on: true })
+      x(): void {}
+    }
+    class N extends M {}
+    expect(Meta.get(N, "x")).toEqual({ on: true });
+    expect(Meta.get(N, "y")).toBeUndefined();
+    expect(getMethodNames(Child).sort()).toEqual(["a", "b"]);
+  });
+});
