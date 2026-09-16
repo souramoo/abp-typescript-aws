@@ -30,8 +30,6 @@
     "@abp/timing": "workspace:*",
     "@abp/data": "workspace:*",
     "@abp/object-extending": "workspace:*",
-    "@abp/ddd-application": "workspace:*",
-    "@abp/ddd-domain": "workspace:*",
     "@types/aws-lambda": "^8.10.163",
     "zod": "^4.6.5"
   }
