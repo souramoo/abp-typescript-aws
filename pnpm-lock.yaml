@@ -795,6 +795,9 @@ importers:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+      '@abp/dynamodb':
+        specifier: workspace:*
+        version: link:../dynamodb
       '@aws-sdk/client-dynamodb':
         specifier: ^3.1133.0
         version: 3.1133.0
@@ -942,6 +945,9 @@ importers:
       '@abp/distributed-locking':
         specifier: workspace:*
         version: link:../distributed-locking
+      '@abp/dynamodb':
+        specifier: workspace:*
+        version: link:../dynamodb
       '@abp/timing':
         specifier: workspace:*
         version: link:../timing

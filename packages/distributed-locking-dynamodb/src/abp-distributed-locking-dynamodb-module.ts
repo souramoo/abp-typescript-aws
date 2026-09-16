@@ -1,7 +1,7 @@
 import { AbpModule, DependsOn, IConfiguration, type ServiceConfigurationContext } from "@abp/core";
 import { AbpDistributedLockingModule } from "@abp/distributed-locking";
 import { AbpDynamoDbDistributedLockOptions } from "./abp-dynamodb-distributed-lock-options.js";
-import "./dynamodb-client-factory.js";
+import "@abp/dynamodb";
 import "./dynamodb-abp-distributed-lock.js";
 
 /** Registers `DynamoDbAbpDistributedLock` in place of `LocalAbpDistributedLock` (the Medallion provider role in .NET). */

@@ -2,7 +2,7 @@ import { BatchGetCommand, BatchWriteCommand, DeleteCommand, GetCommand, PutComma
 import { AbpException, Dependency, Singleton, optionsToken, type IOptions } from "@abp/core";
 import { IDistributedCacheStore, type CacheValue, type DistributedCacheEntryOptions, type ICacheSupportsMultipleItems } from "@abp/caching";
 import { AbpDynamoDbCacheOptions } from "./abp-dynamodb-cache-options.js";
-import { IDynamoDbClientFactory } from "./dynamodb-client-factory.js";
+import { IDynamoDbClientFactory } from "@abp/dynamodb";
 
 /** The attributes of a cache item in the single table. */
 export interface DynamoDbCacheItem {

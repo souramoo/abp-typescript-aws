@@ -2,7 +2,7 @@ import { DeleteCommand, PutCommand, UpdateCommand, type DynamoDBDocumentClient }
 import { AbpException, Check, Dependency, Guid, ILoggerFactory, Singleton, delay, optionsToken, throwIfAborted, type ILogger, type IOptions } from "@abp/core";
 import { IAbpDistributedLock, IDistributedLockKeyNormalizer, type IAbpDistributedLockHandle } from "@abp/distributed-locking";
 import { AbpDynamoDbDistributedLockOptions } from "./abp-dynamodb-distributed-lock-options.js";
-import { IDynamoDbClientFactory } from "./dynamodb-client-factory.js";
+import { IDynamoDbClientFactory } from "@abp/dynamodb";
 
 /** The attributes of a lock item in the single table. */
 export interface DynamoDbLockItem {

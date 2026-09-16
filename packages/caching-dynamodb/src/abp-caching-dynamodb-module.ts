@@ -1,7 +1,7 @@
 import { AbpModule, DependsOn, IConfiguration, type ServiceConfigurationContext } from "@abp/core";
 import { AbpCachingModule } from "@abp/caching";
 import { AbpDynamoDbCacheOptions } from "./abp-dynamodb-cache-options.js";
-import "./dynamodb-client-factory.js";
+import "@abp/dynamodb";
 import "./dynamodb-distributed-cache-store.js";
 
 /** Registers `DynamoDbDistributedCacheStore` in place of the in-memory store of `AbpCachingModule`. */

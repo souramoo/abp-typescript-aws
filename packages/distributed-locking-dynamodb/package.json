@@ -17,6 +17,7 @@
     "@abp/distributed-locking": "workspace:*",
     "@abp/timing": "workspace:*",
     "@aws-sdk/client-dynamodb": "^3.1133.0",
-    "@aws-sdk/lib-dynamodb": "^3.1133.0"
+    "@aws-sdk/lib-dynamodb": "^3.1133.0",
+    "@abp/dynamodb": "workspace:*"
   }
 }
