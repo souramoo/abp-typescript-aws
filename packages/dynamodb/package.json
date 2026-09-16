@@ -24,6 +24,7 @@
     "@abp/json": "workspace:*",
     "@abp/event-bus": "workspace:*",
     "@abp/specifications": "workspace:*",
+    "@abp/object-extending": "workspace:*",
     "@aws-sdk/client-dynamodb": "^3.1133.0",
     "@aws-sdk/lib-dynamodb": "^3.1133.0"
   }

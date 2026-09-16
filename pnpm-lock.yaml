@@ -978,6 +978,9 @@ importers:
       '@abp/multi-tenancy-abstractions':
         specifier: workspace:*
         version: link:../multi-tenancy-abstractions
+      '@abp/object-extending':
+        specifier: workspace:*
+        version: link:../object-extending
       '@abp/specifications':
         specifier: workspace:*
         version: link:../specifications

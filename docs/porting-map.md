@@ -36,12 +36,12 @@ Status legend: ✅ ported · 🚧 in progress · ⏭ out of scope (UI, .NET-only
 | TextTemplating(.Core/.Scriban/.Razor)        | text-templating              | ✅ |
 | Ddd.Domain(.Shared)                          | ddd-domain                   | ✅ |
 | Ddd.Application(.Contracts)                  | ddd-application              | ✅ |
-| EntityFrameworkCore.* / MongoDB / Dapper     | dynamodb                     | 🚧 |
+| EntityFrameworkCore.* / MongoDB / Dapper     | dynamodb                     | ✅ |
 | MemoryDb                                     | memory-db                    | ✅ |
-| Http(.Abstractions) / Http.Client            | http / http-client           | 🚧 |
-| AspNetCore / AspNetCore.Mvc(.Contracts)      | aws-lambda (+ http)          | 🚧 |
-| AspNetCore.Authentication.JwtBearer          | auth-jwt                     | 🚧 |
-| AspNetCore.MultiTenancy                      | aws-lambda (tenant resolvers)| 🚧 |
+| Http(.Abstractions) / Http.Client            | http / http-client           | ✅ |
+| AspNetCore / AspNetCore.Mvc(.Contracts)      | aws-lambda (+ http)          | ✅ |
+| AspNetCore.Authentication.JwtBearer          | auth-jwt                     | ✅ |
+| AspNetCore.MultiTenancy                      | aws-lambda (tenant resolvers)| ✅ |
 | Swashbuckle                                  | http (OpenAPI generation)    | 🚧 |
 | TestBase / AspNetCore.TestBase               | test-base                    | ✅ |
 | Cli / Cli.Core / Studio                      | cli (scaffolding only)       | ⏭ later |
