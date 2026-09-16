@@ -1,0 +1,9 @@
+{
+  "culture": "en",
+  "texts": {
+    "Hello": "Hello",
+    "Welcome": "Welcome {0}!",
+    "Menu": { "Home": "Home", "About": "About us" },
+    "OnlyInEn": "Only in en"
+  }
+}

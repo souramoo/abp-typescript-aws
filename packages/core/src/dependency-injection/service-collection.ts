@@ -7,7 +7,6 @@ import { AbpException } from "../exception-handling/exceptions.js";
 import { ServiceProvider, type IServiceProvider } from "./service-provider.js";
 import { OptionsRegistry } from "../options/options-registry.js";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ImplementationInput<T> = Class<T & object> | { useClass: Class<T & object> } | { useFactory: (p: IServiceProvider) => T } | { useValue: T };
 
 function toImplementation<T>(input: ImplementationInput<T>): ServiceImplementation<T> {

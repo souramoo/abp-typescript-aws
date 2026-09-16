@@ -27,9 +27,353 @@ importers:
         specifier: ^4.0.0
         version: 4.1.11(@types/node@22.20.3)(vite@8.3.0(@types/node@22.20.3)(esbuild@0.28.2)(tsx@4.23.13))
 
+  infra:
+    dependencies:
+      aws-cdk-lib:
+        specifier: ^2.269.0
+        version: 2.269.0(constructs@10.8.1)
+      constructs:
+        specifier: ^10.8.1
+        version: 10.8.1
+    devDependencies:
+      aws-cdk:
+        specifier: ^2.1141.0
+        version: 2.1141.0
+      esbuild:
+        specifier: ^0.28.2
+        version: 0.28.2
+      tsx:
+        specifier: ^4.23.13
+        version: 4.23.13
+
+  packages/auditing:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../guids
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../security
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
+
+  packages/authorization:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../security
+
+  packages/background-jobs:
+    dependencies:
+      '@abp/background-workers':
+        specifier: workspace:*
+        version: link:../background-workers
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../guids
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+
+  packages/background-workers:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/blob-storing:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+
+  packages/caching:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
+
   packages/core: {}
 
+  packages/data:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
+
+  packages/distributed-locking:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/emailing:
+    dependencies:
+      '@abp/background-jobs':
+        specifier: workspace:*
+        version: link:../background-jobs
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      '@abp/settings':
+        specifier: workspace:*
+        version: link:../settings
+      '@abp/text-templating':
+        specifier: workspace:*
+        version: link:../text-templating
+
+  packages/event-bus:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../guids
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
+
+  packages/features:
+    dependencies:
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../authorization
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../security
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../validation
+
+  packages/global-features:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+
+  packages/guids:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/json:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+
+  packages/localization:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/multi-tenancy:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../security
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
+
+  packages/multi-tenancy-abstractions:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/object-extending:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../validation
+      zod:
+        specifier: ^4.6.5
+        version: 4.6.5
+
+  packages/object-mapping:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/security:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/settings:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../security
+
+  packages/sms:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/specifications:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/text-templating:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+
+  packages/timing:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/uow:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/validation:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      zod:
+        specifier: ^4.6.5
+        version: 4.6.5
+
 packages:
+
+  '@aws-cdk/asset-awscli-v1@2.2.292':
+    resolution: {integrity: sha512-d4aMFsAFj19FtxVyw8IzlUKv5Zu4sIvgnEjI2IU6IWBJgVbJ4aFnadANqYa+6MwB1CQbGOg0jh8WE77M+Nb/9A==}
+
+  '@aws-cdk/asset-node-proxy-agent-v6@2.1.3':
+    resolution: {integrity: sha512-98We1QWfin9vtuuQtNFhIIAEWb8CreyYTAP0Vn8HqSBoNiFJM9nZgifJeQawT9Wq0NX1HCNFlxCyTccIrK1PSA==}
+
+  '@aws-cdk/cloud-assembly-schema@54.23.0':
+    resolution: {integrity: sha512-6ymdxl2MT34iES1Qot7cWAOzJCoRMrNr/E82/eYAx1inEJXG6iqJOsoa+nTa5Q+Mk+b7Z9xLP3pc2LgNnkFJJw==}
+    engines: {node: '>= 18.0.0'}
+    bundledDependencies:
+      - jsonschema
+      - semver
 
   '@esbuild/aix-ppc64@0.28.2':
     resolution: {integrity: sha512-XExcO+dvLKvVtNTibSTBej1NCAbaGhWn9Ww1ZPx80qsahhPFe/8jgWP0IchNe0F3HwkU7n8ejhH8bjonqht8mQ==}
@@ -480,6 +824,30 @@ packages:
     resolution: {integrity: sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA==}
     engines: {node: '>=12'}
 
+  aws-cdk-lib@2.269.0:
+    resolution: {integrity: sha512-Ob2EmB3faXGUMjXYhxsMvktZtaojr/aaeLqFjq9WbO+vOX1mx49OQPVB6NNNLfNKWF993Bb6nr4rsPblpUAJww==}
+    engines: {node: '>= 20.0.0'}
+    peerDependencies:
+      constructs: ^10.5.0
+    bundledDependencies:
+      - '@aws/cloudformation-validate'
+      - '@balena/dockerignore'
+      - '@aws-cdk/cloud-assembly-api'
+      - case
+      - fs-extra
+      - ignore
+      - jsonschema
+      - minimatch
+      - punycode
+      - semver
+      - yaml
+      - mime-types
+
+  aws-cdk@2.1141.0:
+    resolution: {integrity: sha512-RIKueAoFNYUot/VmlUzPUbecxNCtLzJFqpy/O+vTpjrvDn4k2Uiu9Y/QlVlQzaSJw0qqNNY6ldusJVdkX8aBNA==}
+    engines: {node: '>= 18.0.0'}
+    hasBin: true
+
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
@@ -515,6 +883,9 @@ packages:
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+
+  constructs@10.8.1:
+    resolution: {integrity: sha512-98yGXYyhePqPYh3cYu8nzBERmAhC0DONe3UD03okK0nehZ7hYP4wgZuf02a04+uOWxnTJ5Rpp5m0GRNpwyLGGA==}
 
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
@@ -1047,7 +1418,16 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
+  zod@4.6.5:
+    resolution: {integrity: sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q==}
+
 snapshots:
+
+  '@aws-cdk/asset-awscli-v1@2.2.292': {}
+
+  '@aws-cdk/asset-node-proxy-agent-v6@2.1.3': {}
+
+  '@aws-cdk/cloud-assembly-schema@54.23.0': {}
 
   '@esbuild/aix-ppc64@0.28.2':
     optional: true
@@ -1410,6 +1790,15 @@ snapshots:
 
   assertion-error@2.0.1: {}
 
+  aws-cdk-lib@2.269.0(constructs@10.8.1):
+    dependencies:
+      '@aws-cdk/asset-awscli-v1': 2.2.292
+      '@aws-cdk/asset-node-proxy-agent-v6': 2.1.3
+      '@aws-cdk/cloud-assembly-schema': 54.23.0
+      constructs: 10.8.1
+
+  aws-cdk@2.1141.0: {}
+
   balanced-match@1.0.2: {}
 
   balanced-match@4.0.4: {}
@@ -1439,6 +1828,8 @@ snapshots:
   color-name@1.1.4: {}
 
   concat-map@0.0.1: {}
+
+  constructs@10.8.1: {}
 
   convert-source-map@2.0.0: {}
 
@@ -1895,3 +2286,5 @@ snapshots:
   word-wrap@1.2.5: {}
 
   yocto-queue@0.1.0: {}
+
+  zod@4.6.5: {}

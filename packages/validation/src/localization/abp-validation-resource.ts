@@ -1,0 +1,46 @@
+import { LocalizationResourceName, type JsonLocalizationFile } from "@abp/localization";
+
+/** Port of `AbpValidationResource` ("AbpValidation"). */
+@LocalizationResourceName("AbpValidation")
+export class AbpValidationResource {}
+
+/** Port of `Volo/Abp/Validation/Localization/en.json`. */
+export const abpValidationEn: JsonLocalizationFile = {
+  culture: "en",
+  texts: {
+    "'{0}' and '{1}' do not match.": "'{0}' and '{1}' do not match.",
+    "The {0} field is not a valid credit card number.": "The {0} field is not a valid credit card number.",
+    "{0} is not valid.": "{0} is not valid.",
+    "The {0} field is not a valid e-mail address.": "The {0} field is not a valid e-mail address.",
+    "The {0} field only accepts files with the following extensions: {1}": "The {0} field only accepts files with the following extensions: {1}",
+    "The field {0} must be a string or array type with a maximum length of '{1}'.": "The field {0} must be a string or array type with a maximum length of '{1}'.",
+    "The field {0} must be a string or array type with a minimum length of '{1}'.": "The field {0} must be a string or array type with a minimum length of '{1}'.",
+    "The {0} field is not a valid phone number.": "The {0} field is not a valid phone number.",
+    "The field {0} must be between {1} and {2}.": "The field {0} must be between {1} and {2}.",
+    "The field {0} must match the regular expression '{1}'.": "The field {0} does not match the requested format.",
+    "The {0} field is required.": "The {0} field is required.",
+    "The field {0} must be a string with a maximum length of {1}.": "The field {0} must be a string with a maximum length of {1}.",
+    "The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.": "The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.",
+    "The {0} field is not a valid fully-qualified http, https, or ftp URL.": "The {0} field is not a valid fully-qualified http, https, or ftp URL.",
+    "The field {0} is invalid.": "The field {0} is invalid.",
+    "The value '{0}' is invalid.": "The value '{0}' is invalid.",
+    "The field {0} must be a number.": "The field {0} must be a number.",
+    "The field must be a number.": "The field must be a number.",
+    "ThisFieldIsNotAValidCreditCardNumber.": "This field is not a valid credit card number.",
+    "ThisFieldIsNotValid.": "This field is not valid.",
+    "ThisFieldIsNotAValidEmailAddress.": "This field is not a valid e-mail address.",
+    "ThisFieldOnlyAcceptsFilesWithTheFollowingExtensions:{0}": "This field only accepts files with the following extensions: {0}",
+    "ThisFieldMustBeAStringOrArrayTypeWithAMaximumLengthOf{0}": "This field must be at most '{0}' characters long.",
+    "ThisFieldMustBeAStringOrArrayTypeWithAMinimumLengthOf{0}": "This field must be at least '{0}' characters long.",
+    "ThisFieldIsNotAValidPhoneNumber.": "This field is not a valid phone number.",
+    "ThisFieldMustBeBetween{0}And{1}": "This field must be between {0} and {1}.",
+    "ThisFieldMustBeGreaterThanOrEqual{0}": "This field must be greater than or equal to {0}.",
+    "ThisFieldMustBeLessOrEqual{0}": "This field must be less than or equal to {0}.",
+    "ThisFieldMustMatchTheRegularExpression{0}": "This field must match the regular expression '{0}'.",
+    "ThisFieldIsRequired.": "This field is required.",
+    "ThisFieldMustBeAStringWithAMaximumLengthOf{0}": "This field must be at most '{0}' characters long.",
+    "ThisFieldMustBeAStringWithAMinimumLengthOf{1}AndAMaximumLengthOf{0}": "This field must be at least {1} and at most {0} characters long.",
+    "ThisFieldIsNotAValidFullyQualifiedHttpHttpsOrFtpUrl": "This field is not a valid fully-qualified http, https, or ftp URL.",
+    "ThisFieldIsInvalid.": "This field is invalid.",
+  },
+};

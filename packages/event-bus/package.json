@@ -1,0 +1,23 @@
+{
+  "name": "@abp/event-bus",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.EventBus(.Abstractions)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/event-bus"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/json": "workspace:*",
+    "@abp/guids": "workspace:*",
+    "@abp/timing": "workspace:*"
+  }
+}

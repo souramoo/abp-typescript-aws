@@ -9,7 +9,7 @@ describe("Configuration", () => {
     expect(cfg.get("Abp:Name")).toBe("x");
     expect(cfg.getSection("Abp:Auditing").toObject()).toEqual({ IsEnabled: false, Ignored: ["a", "b"] });
     expect(cfg.getSection("Nope").exists()).toBe(false);
-    expect(cfg.getSection("Abp").getChildren().map((c) => c.key).sort()).toEqual(["auditing", "name"]);
+    expect(cfg.getSection("Abp").getChildren().map((c) => c.key).sort()).toEqual(["Auditing", "Name"]);
   });
 });
 

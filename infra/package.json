@@ -1,0 +1,22 @@
+{
+  "name": "@abp/infra",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AWS CDK app deploying the new-abp template application",
+  "type": "module",
+  "scripts": {
+    "cdk": "cdk",
+    "synth": "cdk synth",
+    "deploy": "cdk deploy --require-approval never",
+    "destroy": "cdk destroy"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.269.0",
+    "constructs": "^10.8.1"
+  },
+  "devDependencies": {
+    "aws-cdk": "^2.1141.0",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.13"
+  }
+}

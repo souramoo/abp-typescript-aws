@@ -1,0 +1,7 @@
+{
+  "culture": "tr",
+  "texts": {
+    "Hello": "Merhaba",
+    "Welcome": "Hoş geldin {0}!"
+  }
+}

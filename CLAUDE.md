@@ -62,6 +62,13 @@ application → domain + application-contracts; domain → domain-shared; dynamo
 - **Validation** uses zod schemas attached to DTO classes (`static readonly schema = z.object(...)`).
 - **No `any`**, `unknown` at boundaries, discriminated unions for variants, exhaustive `switch` with `never` checks.
 - Logging via `ILoggerFactory.createLogger(category)`; never `console.log` in shipped code.
+- Base classes meant to be subclassed declare `static readonly inject: readonly ServiceKey[] = [...]` (not `as const`, so
+  subclasses can override with different deps). Conventional registration decorators are not inherited: every concrete
+  subclass needs its own `@Transient()`/`@Scoped()`.
+- Ambient scopes: `change()` uses `AsyncLocalStorage.enterWith`, which is visible to the caller after `await callee()`.
+  Infrastructure that begins scopes on behalf of a caller (interceptors, seeders, resolvers) wraps the call in
+  `forkAmbientScope(fn)` / `provider.fork(fn)` or uses the `run(value, fn)` form.
+- Cross-cutting concern names live in `AbpCrossCuttingConcerns` (core) and are used with `AppliedCrossCuttingConcerns`.
 
 ## Serverless mapping
 

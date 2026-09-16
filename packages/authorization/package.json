@@ -1,0 +1,21 @@
+{
+  "name": "@abp/authorization",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.Authorization(.Abstractions)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/authorization"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "@abp/security": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*"
+  }
+}

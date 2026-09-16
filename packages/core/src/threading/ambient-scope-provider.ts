@@ -12,6 +12,12 @@ export interface IAmbientScopeProvider<T> {
   beginScope(contextKey: string, value: T | undefined): Disposable;
   /** Callback style: sets the value only inside `fn` (safest across `await`). */
   run<R>(contextKey: string, value: T | undefined, fn: () => R): R;
+  /**
+   * Runs `fn` in a copied ambient frame so that any `beginScope` it performs cannot leak to the caller.
+   * `AsyncLocalStorage.enterWith` inside an awaited callee is visible to the caller after the `await`;
+   * interceptors and other infrastructure that begin scopes on behalf of a caller should use `fork`.
+   */
+  fork<R>(fn: () => R): R;
 }
 
 type Store = ReadonlyMap<string, unknown>;
@@ -45,6 +51,15 @@ export class AmbientScopeProvider<T> implements IAmbientScopeProvider<T> {
   run<R>(contextKey: string, value: T | undefined, fn: () => R): R {
     return storage.run(withKey(storage.getStore(), contextKey, value), fn);
   }
+
+  fork<R>(fn: () => R): R {
+    return storage.run(new Map(storage.getStore() ?? []), fn);
+  }
+}
+
+/** Runs `fn` in a copied ambient frame (see {@link IAmbientScopeProvider.fork}). */
+export function forkAmbientScope<R>(fn: () => R): R {
+  return storage.run(new Map(storage.getStore() ?? []), fn);
 }
 
 export const IAmbientScopeProvider = createToken<IAmbientScopeProvider<unknown>>("IAmbientScopeProvider");

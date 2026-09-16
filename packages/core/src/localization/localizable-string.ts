@@ -10,7 +10,7 @@ export interface IStringLocalizer {
   get(name: string, ...args: unknown[]): LocalizedString;
   /** Convenience: localized text or the key itself. */
   t(name: string, ...args: unknown[]): string;
-  getAllStrings(includeParentCultures?: boolean, includeBaseLocalizers?: boolean): LocalizedString[];
+  getAllStrings(includeParentCultures?: boolean, includeBaseLocalizers?: boolean, includeDynamicContributors?: boolean): LocalizedString[];
   withCulture(culture: string): IStringLocalizer;
 }
 export interface IStringLocalizerFactory {
@@ -41,7 +41,9 @@ export class LocalizableString implements ILocalizableString {
     readonly name: string,
   ) {}
   localize(factory: IStringLocalizerFactory): LocalizedString {
-    return factory.create(this.resource).get(this.name);
+    const result = factory.create(this.resource).get(this.name);
+    if (!result.resourceNotFound) return result;
+    return factory.createDefaultOrNull()?.get(this.name) ?? result;
   }
   static create(resource: LocalizationResourceType, name: string): LocalizableString {
     return new LocalizableString(resource, name);

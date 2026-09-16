@@ -1,0 +1,25 @@
+{
+  "name": "@abp/auditing",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.Auditing(.Contracts)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/auditing"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/data": "workspace:*",
+    "@abp/security": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/json": "workspace:*",
+    "@abp/guids": "workspace:*",
+    "@abp/timing": "workspace:*",
+    "@abp/uow": "workspace:*"
+  }
+}

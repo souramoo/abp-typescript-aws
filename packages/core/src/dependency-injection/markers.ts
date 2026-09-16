@@ -1,4 +1,4 @@
-import type { Class } from "./service-token.js";
+import type { AbstractClass, Class } from "./service-token.js";
 
 /**
  * ABP uses marker interfaces (`IUnitOfWorkEnabled`, `IAuditingEnabled`, `IValidationEnabled`, …) and attributes
@@ -6,26 +6,26 @@ import type { Class } from "./service-token.js";
  * decorators backed by a WeakSet; `has()` honours inheritance (a subclass of a marked class is marked).
  */
 export interface ClassMarker {
-  (): (target: Class) => void;
-  mark(type: Class): void;
-  has(type: Class | undefined): boolean;
+  (): (target: AbstractClass) => void;
+  mark(type: AbstractClass): void;
+  has(type: AbstractClass | undefined): boolean;
   readonly markerName: string;
 }
 
 export function createClassMarker(name: string): ClassMarker {
-  const marked = new WeakSet<Class>();
-  const has = (type: Class | undefined): boolean => {
+  const marked = new WeakSet<AbstractClass>();
+  const has = (type: AbstractClass | undefined): boolean => {
     let current: unknown = type;
     while (typeof current === "function" && current !== Function.prototype) {
-      if (marked.has(current as Class)) return true;
+      if (marked.has(current as AbstractClass)) return true;
       current = Object.getPrototypeOf(current);
     }
     return false;
   };
-  const decorator = () => (target: Class) => {
+  const decorator = () => (target: AbstractClass) => {
     marked.add(target);
   };
-  return Object.assign(decorator, { mark: (t: Class) => marked.add(t), has, markerName: name });
+  return Object.assign(decorator, { mark: (t: AbstractClass) => marked.add(t), has, markerName: name });
 }
 
 /**
@@ -113,3 +113,13 @@ export const AppliedCrossCuttingConcerns = {
     return { [Symbol.dispose]: () => (set as Set<string>).delete(concern) };
   },
 };
+
+/** Names of ABP's cross-cutting concerns, shared by all interceptor packages (port of `AbpCrossCuttingConcerns`). */
+export const AbpCrossCuttingConcerns = {
+  Auditing: "AbpAuditing",
+  UnitOfWork: "AbpUnitOfWork",
+  Validation: "AbpValidation",
+  Authorization: "AbpAuthorization",
+  FeatureChecking: "AbpFeatureChecking",
+  GlobalFeatureChecking: "AbpGlobalFeatureChecking",
+} as const;

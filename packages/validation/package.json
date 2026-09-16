@@ -1,0 +1,20 @@
+{
+  "name": "@abp/validation",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.Validation(.Abstractions)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/validation"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "zod": "^4.6.5"
+  }
+}

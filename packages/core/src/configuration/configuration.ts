@@ -55,9 +55,12 @@ export class Configuration implements IConfiguration {
     readonly path: string = "",
   ) {}
 
+  /** Last segment of the path, in the casing it was declared with (falls back to the requested casing). */
   get key(): string {
-    const i = this.path.lastIndexOf(":");
-    return i < 0 ? this.path : this.path.slice(i + 1);
+    const original = this.originalKeys.get(normalize(this.path));
+    const source = original ?? this.path;
+    const i = source.lastIndexOf(":");
+    return i < 0 ? source : source.slice(i + 1);
   }
 
   get value(): string | undefined {
@@ -81,14 +84,16 @@ export class Configuration implements IConfiguration {
 
   getChildren(): IConfiguration[] {
     const prefix = this.path ? normalize(this.path) + ":" : "";
-    const names = new Set<string>();
+    const names = new Map<string, string>();
     for (const k of this.data.keys()) {
       if (!k.startsWith(prefix)) continue;
       const rest = k.slice(prefix.length);
       const first = rest.split(":")[0];
-      if (first) names.add(first);
+      if (!first || names.has(first)) continue;
+      const original = this.originalKeys.get(k)?.slice(prefix.length).split(":")[0];
+      names.set(first, original ?? first);
     }
-    return [...names].map((n) => this.getSection(n));
+    return [...names.values()].map((n) => this.getSection(n));
   }
 
   toObject<T = Record<string, unknown>>(): T {

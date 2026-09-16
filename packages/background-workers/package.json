@@ -1,0 +1,18 @@
+{
+  "name": "@abp/background-workers",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.BackgroundWorkers",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/background-workers"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*"
+  }
+}

@@ -15,7 +15,9 @@ export interface IKeyedObject {
   readonly key: string;
 }
 /** Port of `IRemoteService` marker: application services exposed over HTTP. */
-export interface IRemoteService {}
+export interface IRemoteService {
+  readonly __remoteService?: true;
+}
 
 /** Port of `RemoteServiceAttribute`: metadata for auto API controllers & client proxies. */
 export interface RemoteServiceMetadata {
