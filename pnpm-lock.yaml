@@ -230,6 +230,9 @@ importers:
       '@abp/ddd-domain':
         specifier: workspace:*
         version: link:../../packages/ddd-domain
+      '@abp/distributed-locking':
+        specifier: workspace:*
+        version: link:../../packages/distributed-locking
       '@abp/dynamodb':
         specifier: workspace:*
         version: link:../../packages/dynamodb
@@ -245,15 +248,24 @@ importers:
       '@abp/http':
         specifier: workspace:*
         version: link:../../packages/http
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../../packages/json
       '@abp/localization':
         specifier: workspace:*
         version: link:../../packages/localization
+      '@abp/memory-db':
+        specifier: workspace:*
+        version: link:../../packages/memory-db
       '@abp/multi-tenancy':
         specifier: workspace:*
         version: link:../../packages/multi-tenancy
       '@abp/multi-tenancy-abstractions':
         specifier: workspace:*
         version: link:../../packages/multi-tenancy-abstractions
+      '@abp/object-extending':
+        specifier: workspace:*
+        version: link:../../packages/object-extending
       '@abp/object-mapping':
         specifier: workspace:*
         version: link:../../packages/object-mapping
@@ -266,6 +278,13 @@ importers:
       '@abp/validation':
         specifier: workspace:*
         version: link:../../packages/validation
+      zod:
+        specifier: ^4.6.5
+        version: 4.6.5
+    devDependencies:
+      '@abp/test-base':
+        specifier: workspace:*
+        version: link:../../packages/test-base
 
   modules/identity:
     dependencies:
