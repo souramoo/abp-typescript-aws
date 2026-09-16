@@ -9,7 +9,7 @@ export interface ClassMarker {
   (): (target: Class) => void;
   mark(type: Class): void;
   has(type: Class | undefined): boolean;
-  readonly name: string;
+  readonly markerName: string;
 }
 
 export function createClassMarker(name: string): ClassMarker {
@@ -25,7 +25,7 @@ export function createClassMarker(name: string): ClassMarker {
   const decorator = () => (target: Class) => {
     marked.add(target);
   };
-  return Object.assign(decorator, { mark: (t: Class) => marked.add(t), has, name });
+  return Object.assign(decorator, { mark: (t: Class) => marked.add(t), has, markerName: name });
 }
 
 /**
@@ -39,7 +39,7 @@ export interface MethodMetadata<T> {
   /** Metadata declared on the class itself (applies to all methods); port of class-level attributes. */
   setForClass(type: Class, value: T): void;
   getForClass(type: Class | undefined): T | undefined;
-  readonly name: string;
+  readonly metadataName: string;
 }
 
 export function createMethodMetadata<T>(name: string): MethodMetadata<T> {
@@ -76,7 +76,7 @@ export function createMethodMetadata<T>(name: string): MethodMetadata<T> {
     get,
     setForClass: (type: Class, value: T) => perClass.set(type, value),
     getForClass,
-    name,
+    metadataName: name,
   });
 }
 
