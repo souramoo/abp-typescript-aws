@@ -1,14 +1,15 @@
 {
   "name": "@abp/background-jobs-store",
   "version": "0.1.0",
-  "description": "Port of ABP module 'background-jobs-store' (../abp/modules/background-jobs-store)",
+  "description": "Port of ABP module 'background-jobs' (../abp/modules/background-jobs): a persistent IBackgroundJobStore",
   "license": "LGPL-3.0",
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
     "./domain-shared": "./src/domain-shared/index.ts",
     "./domain": "./src/domain/index.ts",
-    "./dynamodb": "./src/dynamodb/index.ts"
+    "./dynamodb": "./src/dynamodb/index.ts",
+    "./memory-db": "./src/memory-db/index.ts"
   },
   "types": "./src/index.ts",
   "scripts": {
@@ -20,10 +21,17 @@
     "@abp/ddd-domain": "workspace:*",
     "@abp/background-jobs": "workspace:*",
     "@abp/dynamodb": "workspace:*",
+    "@abp/memory-db": "workspace:*",
     "@abp/multi-tenancy-abstractions": "workspace:*",
     "@abp/data": "workspace:*",
     "@abp/guids": "workspace:*",
     "@abp/uow": "workspace:*",
-    "@abp/timing": "workspace:*"
+    "@abp/timing": "workspace:*",
+    "@abp/object-mapping": "workspace:*",
+    "@abp/auditing": "workspace:*"
+  },
+  "devDependencies": {
+    "@abp/test-base": "workspace:*",
+    "@aws-sdk/lib-dynamodb": "^3.1133.0"
   }
 }

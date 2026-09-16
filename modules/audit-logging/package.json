@@ -8,7 +8,8 @@
     ".": "./src/index.ts",
     "./domain-shared": "./src/domain-shared/index.ts",
     "./domain": "./src/domain/index.ts",
-    "./dynamodb": "./src/dynamodb/index.ts"
+    "./dynamodb": "./src/dynamodb/index.ts",
+    "./memory-db": "./src/memory-db/index.ts"
   },
   "types": "./src/index.ts",
   "scripts": {
@@ -20,13 +21,20 @@
     "@abp/ddd-domain": "workspace:*",
     "@abp/auditing": "workspace:*",
     "@abp/dynamodb": "workspace:*",
+    "@abp/memory-db": "workspace:*",
     "@abp/multi-tenancy-abstractions": "workspace:*",
     "@abp/data": "workspace:*",
     "@abp/guids": "workspace:*",
     "@abp/uow": "workspace:*",
     "@abp/json": "workspace:*",
+    "@abp/http": "workspace:*",
     "@abp/timing": "workspace:*",
     "@abp/localization": "workspace:*",
+    "@abp/validation": "workspace:*",
+    "@abp/object-extending": "workspace:*",
     "@abp/security": "workspace:*"
+  },
+  "devDependencies": {
+    "@abp/test-base": "workspace:*"
   }
 }

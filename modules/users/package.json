@@ -8,7 +8,8 @@
     ".": "./src/index.ts",
     "./domain-shared": "./src/domain-shared/index.ts",
     "./domain": "./src/domain/index.ts",
-    "./dynamodb": "./src/dynamodb/index.ts"
+    "./dynamodb": "./src/dynamodb/index.ts",
+    "./memory-db": "./src/memory-db/index.ts"
   },
   "types": "./src/index.ts",
   "scripts": {
@@ -21,8 +22,17 @@
     "@abp/security": "workspace:*",
     "@abp/event-bus": "workspace:*",
     "@abp/dynamodb": "workspace:*",
+    "@abp/memory-db": "workspace:*",
+    "@abp/multi-tenancy": "workspace:*",
     "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/object-extending": "workspace:*",
+    "@abp/uow": "workspace:*",
     "@abp/data": "workspace:*",
     "@abp/auditing": "workspace:*"
+  },
+  "devDependencies": {
+    "@abp/test-base": "workspace:*",
+    "@aws-sdk/client-dynamodb": "^3.1133.0",
+    "@aws-sdk/lib-dynamodb": "^3.1133.0"
   }
 }

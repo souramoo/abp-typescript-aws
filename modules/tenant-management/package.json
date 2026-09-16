@@ -11,7 +11,8 @@
     "./application-contracts": "./src/application-contracts/index.ts",
     "./application": "./src/application/index.ts",
     "./http-api": "./src/http-api/index.ts",
-    "./dynamodb": "./src/dynamodb/index.ts"
+    "./dynamodb": "./src/dynamodb/index.ts",
+    "./memory-db": "./src/memory-db/index.ts"
   },
   "types": "./src/index.ts",
   "scripts": {
@@ -26,11 +27,13 @@
     "@abp/multi-tenancy-abstractions": "workspace:*",
     "@abp/security": "workspace:*",
     "@abp/authorization": "workspace:*",
+    "@abp/auditing": "workspace:*",
     "@abp/localization": "workspace:*",
     "@abp/validation": "workspace:*",
     "@abp/caching": "workspace:*",
     "@abp/event-bus": "workspace:*",
     "@abp/dynamodb": "workspace:*",
+    "@abp/memory-db": "workspace:*",
     "@abp/aws-lambda": "workspace:*",
     "@abp/http": "workspace:*",
     "@abp/data": "workspace:*",
@@ -38,6 +41,10 @@
     "@abp/uow": "workspace:*",
     "@abp/object-mapping": "workspace:*",
     "@abp/object-extending": "workspace:*",
-    "@abp/features": "workspace:*"
+    "@abp/features": "workspace:*",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@abp/test-base": "workspace:*"
   }
 }
