@@ -1,0 +1,53 @@
+{
+  "name": "@abp/identity",
+  "version": "0.1.0",
+  "description": "Port of ABP module 'identity' (../abp/modules/identity)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./domain-shared": "./src/domain-shared/index.ts",
+    "./domain": "./src/domain/index.ts",
+    "./application-contracts": "./src/application-contracts/index.ts",
+    "./application": "./src/application/index.ts",
+    "./http-api": "./src/http-api/index.ts",
+    "./dynamodb": "./src/dynamodb/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. modules/identity"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/ddd-domain": "workspace:*",
+    "@abp/ddd-application": "workspace:*",
+    "@abp/users": "workspace:*",
+    "@abp/permission-management": "workspace:*",
+    "@abp/security": "workspace:*",
+    "@abp/authorization": "workspace:*",
+    "@abp/settings": "workspace:*",
+    "@abp/features": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "@abp/validation": "workspace:*",
+    "@abp/event-bus": "workspace:*",
+    "@abp/caching": "workspace:*",
+    "@abp/dynamodb": "workspace:*",
+    "@abp/aws-lambda": "workspace:*",
+    "@abp/http": "workspace:*",
+    "@abp/auth-jwt": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/multi-tenancy": "workspace:*",
+    "@abp/data": "workspace:*",
+    "@abp/auditing": "workspace:*",
+    "@abp/guids": "workspace:*",
+    "@abp/timing": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/object-extending": "workspace:*",
+    "@abp/object-mapping": "workspace:*",
+    "@abp/background-jobs": "workspace:*",
+    "@abp/emailing": "workspace:*",
+    "@abp/sms": "workspace:*",
+    "@abp/text-templating": "workspace:*"
+  }
+}

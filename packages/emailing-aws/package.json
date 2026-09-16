@@ -15,6 +15,8 @@
   "dependencies": {
     "@abp/core": "workspace:*",
     "@abp/emailing": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/background-jobs": "workspace:*",
     "@aws-sdk/client-sesv2": "^3.1133.0"
   }
 }

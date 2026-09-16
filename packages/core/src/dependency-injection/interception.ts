@@ -48,6 +48,9 @@ export function DisableInterception() {
 
 function isInterceptable(instance: object, name: string | symbol): boolean {
   if (typeof name === "symbol" || name === "constructor") return false;
+  // Only prototype methods are intercepted (ABP intercepts virtual methods); own data properties
+  // holding functions or classes (e.g. `entityType`) are returned untouched.
+  if (Object.prototype.hasOwnProperty.call(instance, name)) return false;
   let proto = Object.getPrototypeOf(instance) as object | null;
   while (proto && proto !== Object.prototype) {
     if (nonInterceptedMethods.get(proto)?.has(name)) return false;

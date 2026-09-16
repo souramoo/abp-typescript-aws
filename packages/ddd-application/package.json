@@ -31,5 +31,10 @@
     "@abp/uow": "workspace:*",
     "@abp/object-extending": "workspace:*",
     "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@abp/memory-db": "workspace:*",
+    "@abp/test-base": "workspace:*",
+    "@abp/event-bus": "workspace:*"
   }
 }

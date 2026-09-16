@@ -52,6 +52,498 @@ importers:
         specifier: ^4.23.13
         version: 4.23.13
 
+  modules/account:
+    dependencies:
+      '@abp/auth-jwt':
+        specifier: workspace:*
+        version: link:../../packages/auth-jwt
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../../packages/authorization
+      '@abp/aws-lambda':
+        specifier: workspace:*
+        version: link:../../packages/aws-lambda
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@abp/ddd-application':
+        specifier: workspace:*
+        version: link:../../packages/ddd-application
+      '@abp/emailing':
+        specifier: workspace:*
+        version: link:../../packages/emailing
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../../packages/guids
+      '@abp/http':
+        specifier: workspace:*
+        version: link:../../packages/http
+      '@abp/identity':
+        specifier: workspace:*
+        version: link:../identity
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../../packages/localization
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy-abstractions
+      '@abp/object-extending':
+        specifier: workspace:*
+        version: link:../../packages/object-extending
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../../packages/security
+      '@abp/settings':
+        specifier: workspace:*
+        version: link:../../packages/settings
+      '@abp/text-templating':
+        specifier: workspace:*
+        version: link:../../packages/text-templating
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../../packages/uow
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../../packages/validation
+
+  modules/audit-logging:
+    dependencies:
+      '@abp/auditing':
+        specifier: workspace:*
+        version: link:../../packages/auditing
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../../packages/data
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../../packages/ddd-domain
+      '@abp/dynamodb':
+        specifier: workspace:*
+        version: link:../../packages/dynamodb
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../../packages/guids
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../../packages/json
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../../packages/localization
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy-abstractions
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../../packages/security
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../../packages/timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../../packages/uow
+
+  modules/background-jobs-store:
+    dependencies:
+      '@abp/background-jobs':
+        specifier: workspace:*
+        version: link:../../packages/background-jobs
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../../packages/data
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../../packages/ddd-domain
+      '@abp/dynamodb':
+        specifier: workspace:*
+        version: link:../../packages/dynamodb
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../../packages/guids
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy-abstractions
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../../packages/timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../../packages/uow
+
+  modules/feature-management:
+    dependencies:
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../../packages/authorization
+      '@abp/aws-lambda':
+        specifier: workspace:*
+        version: link:../../packages/aws-lambda
+      '@abp/caching':
+        specifier: workspace:*
+        version: link:../../packages/caching
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../../packages/data
+      '@abp/ddd-application':
+        specifier: workspace:*
+        version: link:../../packages/ddd-application
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../../packages/ddd-domain
+      '@abp/dynamodb':
+        specifier: workspace:*
+        version: link:../../packages/dynamodb
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../../packages/event-bus
+      '@abp/features':
+        specifier: workspace:*
+        version: link:../../packages/features
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../../packages/guids
+      '@abp/http':
+        specifier: workspace:*
+        version: link:../../packages/http
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../../packages/localization
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy-abstractions
+      '@abp/object-mapping':
+        specifier: workspace:*
+        version: link:../../packages/object-mapping
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../../packages/security
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../../packages/uow
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../../packages/validation
+
+  modules/identity:
+    dependencies:
+      '@abp/auditing':
+        specifier: workspace:*
+        version: link:../../packages/auditing
+      '@abp/auth-jwt':
+        specifier: workspace:*
+        version: link:../../packages/auth-jwt
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../../packages/authorization
+      '@abp/aws-lambda':
+        specifier: workspace:*
+        version: link:../../packages/aws-lambda
+      '@abp/background-jobs':
+        specifier: workspace:*
+        version: link:../../packages/background-jobs
+      '@abp/caching':
+        specifier: workspace:*
+        version: link:../../packages/caching
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../../packages/data
+      '@abp/ddd-application':
+        specifier: workspace:*
+        version: link:../../packages/ddd-application
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../../packages/ddd-domain
+      '@abp/dynamodb':
+        specifier: workspace:*
+        version: link:../../packages/dynamodb
+      '@abp/emailing':
+        specifier: workspace:*
+        version: link:../../packages/emailing
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../../packages/event-bus
+      '@abp/features':
+        specifier: workspace:*
+        version: link:../../packages/features
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../../packages/guids
+      '@abp/http':
+        specifier: workspace:*
+        version: link:../../packages/http
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../../packages/localization
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy-abstractions
+      '@abp/object-extending':
+        specifier: workspace:*
+        version: link:../../packages/object-extending
+      '@abp/object-mapping':
+        specifier: workspace:*
+        version: link:../../packages/object-mapping
+      '@abp/permission-management':
+        specifier: workspace:*
+        version: link:../permission-management
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../../packages/security
+      '@abp/settings':
+        specifier: workspace:*
+        version: link:../../packages/settings
+      '@abp/sms':
+        specifier: workspace:*
+        version: link:../../packages/sms
+      '@abp/text-templating':
+        specifier: workspace:*
+        version: link:../../packages/text-templating
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../../packages/timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../../packages/uow
+      '@abp/users':
+        specifier: workspace:*
+        version: link:../users
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../../packages/validation
+
+  modules/permission-management:
+    dependencies:
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../../packages/authorization
+      '@abp/aws-lambda':
+        specifier: workspace:*
+        version: link:../../packages/aws-lambda
+      '@abp/caching':
+        specifier: workspace:*
+        version: link:../../packages/caching
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../../packages/data
+      '@abp/ddd-application':
+        specifier: workspace:*
+        version: link:../../packages/ddd-application
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../../packages/ddd-domain
+      '@abp/dynamodb':
+        specifier: workspace:*
+        version: link:../../packages/dynamodb
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../../packages/event-bus
+      '@abp/features':
+        specifier: workspace:*
+        version: link:../../packages/features
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../../packages/guids
+      '@abp/http':
+        specifier: workspace:*
+        version: link:../../packages/http
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../../packages/localization
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy-abstractions
+      '@abp/object-mapping':
+        specifier: workspace:*
+        version: link:../../packages/object-mapping
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../../packages/security
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../../packages/uow
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../../packages/validation
+
+  modules/setting-management:
+    dependencies:
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../../packages/authorization
+      '@abp/aws-lambda':
+        specifier: workspace:*
+        version: link:../../packages/aws-lambda
+      '@abp/caching':
+        specifier: workspace:*
+        version: link:../../packages/caching
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../../packages/data
+      '@abp/ddd-application':
+        specifier: workspace:*
+        version: link:../../packages/ddd-application
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../../packages/ddd-domain
+      '@abp/dynamodb':
+        specifier: workspace:*
+        version: link:../../packages/dynamodb
+      '@abp/emailing':
+        specifier: workspace:*
+        version: link:../../packages/emailing
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../../packages/event-bus
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../../packages/guids
+      '@abp/http':
+        specifier: workspace:*
+        version: link:../../packages/http
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../../packages/localization
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy-abstractions
+      '@abp/object-mapping':
+        specifier: workspace:*
+        version: link:../../packages/object-mapping
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../../packages/security
+      '@abp/settings':
+        specifier: workspace:*
+        version: link:../../packages/settings
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../../packages/timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../../packages/uow
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../../packages/validation
+
+  modules/tenant-management:
+    dependencies:
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../../packages/authorization
+      '@abp/aws-lambda':
+        specifier: workspace:*
+        version: link:../../packages/aws-lambda
+      '@abp/caching':
+        specifier: workspace:*
+        version: link:../../packages/caching
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../../packages/data
+      '@abp/ddd-application':
+        specifier: workspace:*
+        version: link:../../packages/ddd-application
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../../packages/ddd-domain
+      '@abp/dynamodb':
+        specifier: workspace:*
+        version: link:../../packages/dynamodb
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../../packages/event-bus
+      '@abp/features':
+        specifier: workspace:*
+        version: link:../../packages/features
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../../packages/guids
+      '@abp/http':
+        specifier: workspace:*
+        version: link:../../packages/http
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../../packages/localization
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy-abstractions
+      '@abp/object-extending':
+        specifier: workspace:*
+        version: link:../../packages/object-extending
+      '@abp/object-mapping':
+        specifier: workspace:*
+        version: link:../../packages/object-mapping
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../../packages/security
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../../packages/uow
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../../packages/validation
+
+  modules/users:
+    dependencies:
+      '@abp/auditing':
+        specifier: workspace:*
+        version: link:../../packages/auditing
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../../packages/data
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../../packages/ddd-domain
+      '@abp/dynamodb':
+        specifier: workspace:*
+        version: link:../../packages/dynamodb
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../../packages/event-bus
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../../packages/multi-tenancy-abstractions
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../../packages/security
+
   packages/auditing:
     dependencies:
       '@abp/core':
@@ -147,12 +639,6 @@ importers:
       '@abp/data':
         specifier: workspace:*
         version: link:../data
-      '@abp/ddd-application':
-        specifier: workspace:*
-        version: link:../ddd-application
-      '@abp/ddd-domain':
-        specifier: workspace:*
-        version: link:../ddd-domain
       '@abp/features':
         specifier: workspace:*
         version: link:../features
@@ -279,6 +765,9 @@ importers:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
       '@aws-sdk/client-s3':
         specifier: ^3.1133.0
         version: 3.1133.0
@@ -383,6 +872,16 @@ importers:
       zod:
         specifier: ^4.6.5
         version: 4.6.5
+    devDependencies:
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../event-bus
+      '@abp/memory-db':
+        specifier: workspace:*
+        version: link:../memory-db
+      '@abp/test-base':
+        specifier: workspace:*
+        version: link:../test-base
 
   packages/ddd-domain:
     dependencies:
@@ -416,6 +915,9 @@ importers:
       '@abp/object-mapping':
         specifier: workspace:*
         version: link:../object-mapping
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../security
       '@abp/specifications':
         specifier: workspace:*
         version: link:../specifications
@@ -515,12 +1017,18 @@ importers:
 
   packages/emailing-aws:
     dependencies:
+      '@abp/background-jobs':
+        specifier: workspace:*
+        version: link:../background-jobs
       '@abp/core':
         specifier: workspace:*
         version: link:../core
       '@abp/emailing':
         specifier: workspace:*
         version: link:../emailing
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
       '@aws-sdk/client-sesv2':
         specifier: ^3.1133.0
         version: 3.1133.0
@@ -557,12 +1065,21 @@ importers:
       '@abp/event-bus':
         specifier: workspace:*
         version: link:../event-bus
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../guids
       '@abp/json':
         specifier: workspace:*
         version: link:../json
       '@abp/multi-tenancy-abstractions':
         specifier: workspace:*
         version: link:../multi-tenancy-abstractions
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
       '@aws-sdk/client-sns':
         specifier: ^3.1133.0
         version: 3.1133.0
@@ -620,12 +1137,21 @@ importers:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
       '@abp/json':
         specifier: workspace:*
         version: link:../json
       '@abp/localization':
         specifier: workspace:*
         version: link:../localization
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../security
       '@abp/validation':
         specifier: workspace:*
         version: link:../validation
@@ -776,6 +1302,9 @@ importers:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
 
   packages/text-templating:
     dependencies:

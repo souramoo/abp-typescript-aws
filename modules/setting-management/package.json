@@ -1,0 +1,44 @@
+{
+  "name": "@abp/setting-management",
+  "version": "0.1.0",
+  "description": "Port of ABP module 'setting-management' (../abp/modules/setting-management)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./domain-shared": "./src/domain-shared/index.ts",
+    "./domain": "./src/domain/index.ts",
+    "./application-contracts": "./src/application-contracts/index.ts",
+    "./application": "./src/application/index.ts",
+    "./http-api": "./src/http-api/index.ts",
+    "./dynamodb": "./src/dynamodb/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. modules/setting-management"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/ddd-domain": "workspace:*",
+    "@abp/ddd-application": "workspace:*",
+    "@abp/settings": "workspace:*",
+    "@abp/security": "workspace:*",
+    "@abp/authorization": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "@abp/validation": "workspace:*",
+    "@abp/caching": "workspace:*",
+    "@abp/event-bus": "workspace:*",
+    "@abp/dynamodb": "workspace:*",
+    "@abp/aws-lambda": "workspace:*",
+    "@abp/http": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/multi-tenancy": "workspace:*",
+    "@abp/data": "workspace:*",
+    "@abp/guids": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/object-mapping": "workspace:*",
+    "@abp/timing": "workspace:*",
+    "@abp/emailing": "workspace:*"
+  }
+}

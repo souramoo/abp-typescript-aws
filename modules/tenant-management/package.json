@@ -1,0 +1,43 @@
+{
+  "name": "@abp/tenant-management",
+  "version": "0.1.0",
+  "description": "Port of ABP module 'tenant-management' (../abp/modules/tenant-management)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./domain-shared": "./src/domain-shared/index.ts",
+    "./domain": "./src/domain/index.ts",
+    "./application-contracts": "./src/application-contracts/index.ts",
+    "./application": "./src/application/index.ts",
+    "./http-api": "./src/http-api/index.ts",
+    "./dynamodb": "./src/dynamodb/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. modules/tenant-management"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/ddd-domain": "workspace:*",
+    "@abp/ddd-application": "workspace:*",
+    "@abp/multi-tenancy": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/security": "workspace:*",
+    "@abp/authorization": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "@abp/validation": "workspace:*",
+    "@abp/caching": "workspace:*",
+    "@abp/event-bus": "workspace:*",
+    "@abp/dynamodb": "workspace:*",
+    "@abp/aws-lambda": "workspace:*",
+    "@abp/http": "workspace:*",
+    "@abp/data": "workspace:*",
+    "@abp/guids": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/object-mapping": "workspace:*",
+    "@abp/object-extending": "workspace:*",
+    "@abp/features": "workspace:*"
+  }
+}

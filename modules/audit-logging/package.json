@@ -1,0 +1,32 @@
+{
+  "name": "@abp/audit-logging",
+  "version": "0.1.0",
+  "description": "Port of ABP module 'audit-logging' (../abp/modules/audit-logging)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./domain-shared": "./src/domain-shared/index.ts",
+    "./domain": "./src/domain/index.ts",
+    "./dynamodb": "./src/dynamodb/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. modules/audit-logging"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/ddd-domain": "workspace:*",
+    "@abp/auditing": "workspace:*",
+    "@abp/dynamodb": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/data": "workspace:*",
+    "@abp/guids": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/json": "workspace:*",
+    "@abp/timing": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "@abp/security": "workspace:*"
+  }
+}

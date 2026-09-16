@@ -1,7 +1,7 @@
 {
   "name": "@abp/http",
   "version": "0.1.0",
-  "description": "Port of Volo.Abp.Http(.Abstractions)",
+  "description": "Port of Volo.Abp.Http(.Abstractions) + Volo.Abp.ExceptionHandling + Volo.Abp.RemoteServices",
   "license": "LGPL-3.0",
   "type": "module",
   "exports": {
@@ -14,8 +14,11 @@
   },
   "dependencies": {
     "@abp/core": "workspace:*",
+    "@abp/data": "workspace:*",
     "@abp/json": "workspace:*",
     "@abp/localization": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/security": "workspace:*",
     "@abp/validation": "workspace:*"
   }
 }

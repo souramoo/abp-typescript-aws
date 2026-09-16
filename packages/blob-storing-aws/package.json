@@ -15,6 +15,7 @@
   "dependencies": {
     "@abp/core": "workspace:*",
     "@abp/blob-storing": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
     "@aws-sdk/client-s3": "^3.1133.0"
   }
 }

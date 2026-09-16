@@ -25,6 +25,7 @@
     "@abp/uow": "workspace:*",
     "@abp/object-extending": "workspace:*",
     "@abp/localization": "workspace:*",
-    "@abp/json": "workspace:*"
+    "@abp/json": "workspace:*",
+    "@abp/security": "workspace:*"
   }
 }

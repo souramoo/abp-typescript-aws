@@ -7,43 +7,43 @@ Status legend: ✅ ported · 🚧 in progress · ⏭ out of scope (UI, .NET-only
 | Volo.Abp.*                                   | @abp/*                       | Status |
 |----------------------------------------------|------------------------------|--------|
 | Core                                         | core                         | ✅ |
-| Guids                                        | guids                        | 🚧 |
-| Timing                                       | timing                       | 🚧 |
-| Data                                         | data                         | 🚧 |
-| Json(.Abstractions/.SystemTextJson)          | json                         | 🚧 |
-| Specifications                               | specifications               | 🚧 |
-| ObjectMapping (+AutoMapper/Mapperly)         | object-mapping               | 🚧 |
-| Localization(.Abstractions)                  | localization                 | 🚧 |
-| Validation(.Abstractions/FluentValidation)   | validation                   | 🚧 |
-| ObjectExtending                              | object-extending             | 🚧 |
-| Security                                     | security                     | 🚧 |
-| MultiTenancy(.Abstractions)                  | multi-tenancy                | 🚧 |
-| Uow                                          | uow                          | 🚧 |
-| EventBus(.Abstractions)                      | event-bus                    | 🚧 |
-| EventBus.RabbitMQ/Kafka/Azure/Rebus/Dapr     | event-bus-aws (SNS/SQS)      | 🚧 |
-| Auditing(.Contracts)                         | auditing                     | 🚧 |
-| Settings                                     | settings                     | 🚧 |
-| Features                                     | features                     | 🚧 |
-| GlobalFeatures                               | global-features              | 🚧 |
-| Authorization(.Abstractions)                 | authorization                | 🚧 |
-| Caching / Caching.StackExchangeRedis         | caching / caching-dynamodb   | 🚧 |
-| DistributedLocking(.Abstractions/.Dapr)      | distributed-locking (DynamoDB) | 🚧 |
-| BlobStoring / BlobStoring.Aws                | blob-storing / blob-storing-aws | 🚧 |
-| BackgroundJobs(.Abstractions) / HangFire…    | background-jobs / background-jobs-aws (SQS) | 🚧 |
-| BackgroundWorkers / Quartz / Hangfire        | background-workers (EventBridge) | 🚧 |
-| Emailing / MailKit                           | emailing / emailing-aws (SES)| 🚧 |
-| Sms / Sms.Aliyun / Sms.TencentCloud          | sms / sms-aws (SNS)          | 🚧 |
-| TextTemplating(.Core/.Scriban/.Razor)        | text-templating              | 🚧 |
-| Ddd.Domain(.Shared)                          | ddd-domain                   | 🚧 |
-| Ddd.Application(.Contracts)                  | ddd-application              | 🚧 |
+| Guids                                        | guids                        | ✅ |
+| Timing                                       | timing                       | ✅ |
+| Data                                         | data                         | ✅ |
+| Json(.Abstractions/.SystemTextJson)          | json                         | ✅ |
+| Specifications                               | specifications               | ✅ |
+| ObjectMapping (+AutoMapper/Mapperly)         | object-mapping               | ✅ |
+| Localization(.Abstractions)                  | localization                 | ✅ |
+| Validation(.Abstractions/FluentValidation)   | validation                   | ✅ |
+| ObjectExtending                              | object-extending             | ✅ |
+| Security                                     | security                     | ✅ |
+| MultiTenancy(.Abstractions)                  | multi-tenancy                | ✅ |
+| Uow                                          | uow                          | ✅ |
+| EventBus(.Abstractions)                      | event-bus                    | ✅ |
+| EventBus.RabbitMQ/Kafka/Azure/Rebus/Dapr     | event-bus-aws (SNS/SQS)      | ✅ |
+| Auditing(.Contracts)                         | auditing                     | ✅ |
+| Settings                                     | settings                     | ✅ |
+| Features                                     | features                     | ✅ |
+| GlobalFeatures                               | global-features              | ✅ |
+| Authorization(.Abstractions)                 | authorization                | ✅ |
+| Caching / Caching.StackExchangeRedis         | caching / caching-dynamodb   | ✅ |
+| DistributedLocking(.Abstractions/.Dapr)      | distributed-locking (DynamoDB) | ✅ |
+| BlobStoring / BlobStoring.Aws                | blob-storing / blob-storing-aws | ✅ |
+| BackgroundJobs(.Abstractions) / HangFire…    | background-jobs / background-jobs-aws (SQS) | ✅ |
+| BackgroundWorkers / Quartz / Hangfire        | background-workers (EventBridge) | ✅ |
+| Emailing / MailKit                           | emailing / emailing-aws (SES)| ✅ |
+| Sms / Sms.Aliyun / Sms.TencentCloud          | sms / sms-aws (SNS)          | ✅ |
+| TextTemplating(.Core/.Scriban/.Razor)        | text-templating              | ✅ |
+| Ddd.Domain(.Shared)                          | ddd-domain                   | ✅ |
+| Ddd.Application(.Contracts)                  | ddd-application              | ✅ |
 | EntityFrameworkCore.* / MongoDB / Dapper     | dynamodb                     | 🚧 |
-| MemoryDb                                     | memory-db                    | 🚧 |
+| MemoryDb                                     | memory-db                    | ✅ |
 | Http(.Abstractions) / Http.Client            | http / http-client           | 🚧 |
 | AspNetCore / AspNetCore.Mvc(.Contracts)      | aws-lambda (+ http)          | 🚧 |
 | AspNetCore.Authentication.JwtBearer          | auth-jwt                     | 🚧 |
 | AspNetCore.MultiTenancy                      | aws-lambda (tenant resolvers)| 🚧 |
 | Swashbuckle                                  | http (OpenAPI generation)    | 🚧 |
-| TestBase / AspNetCore.TestBase               | test-base                    | 🚧 |
+| TestBase / AspNetCore.TestBase               | test-base                    | ✅ |
 | Cli / Cli.Core / Studio                      | cli (scaffolding only)       | ⏭ later |
 | AspNetCore.Mvc.UI.*, Components.*, Blazor*, MudBlazor*, Bundling, Minify, Widgets, Theme.* | — | ⏭ UI |
 | AspNetCore.SignalR                           | (API Gateway WebSockets)     | ⏭ later |

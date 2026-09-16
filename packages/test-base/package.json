@@ -13,6 +13,7 @@
     "test": "vitest run --root ../.. packages/test-base"
   },
   "dependencies": {
-    "@abp/core": "workspace:*"
+    "@abp/core": "workspace:*",
+    "@abp/uow": "workspace:*"
   }
 }

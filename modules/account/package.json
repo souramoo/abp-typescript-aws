@@ -1,0 +1,37 @@
+{
+  "name": "@abp/account",
+  "version": "0.1.0",
+  "description": "Port of ABP module 'account' (../abp/modules/account)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./application-contracts": "./src/application-contracts/index.ts",
+    "./application": "./src/application/index.ts",
+    "./http-api": "./src/http-api/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. modules/account"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/ddd-application": "workspace:*",
+    "@abp/identity": "workspace:*",
+    "@abp/auth-jwt": "workspace:*",
+    "@abp/security": "workspace:*",
+    "@abp/authorization": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "@abp/validation": "workspace:*",
+    "@abp/settings": "workspace:*",
+    "@abp/aws-lambda": "workspace:*",
+    "@abp/http": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/emailing": "workspace:*",
+    "@abp/text-templating": "workspace:*",
+    "@abp/object-extending": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/guids": "workspace:*"
+  }
+}

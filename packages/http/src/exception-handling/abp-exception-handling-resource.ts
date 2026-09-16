@@ -1,0 +1,38 @@
+import { LocalizationResourceName, type JsonLocalizationFile } from "@abp/localization";
+
+/** Port of `AbpExceptionHandlingResource` ("AbpExceptionHandling"); hosted here because there is no ExceptionHandling package. */
+@LocalizationResourceName("AbpExceptionHandling")
+export class AbpExceptionHandlingResource {}
+
+/** Port of `Volo/Abp/ExceptionHandling/Localization/en.json`. */
+export const abpExceptionHandlingEn: JsonLocalizationFile = {
+  culture: "en",
+  texts: {
+    InternalServerErrorMessage: "An internal error occurred during your request!",
+    ValidationErrorMessage: "Your request is not valid!",
+    ValidationNarrativeErrorMessageTitle: "The following errors were detected during validation.",
+    DefaultErrorMessage: "An error has occurred!",
+    DefaultErrorMessageDetail: "Error detail not sent by the server.",
+    DefaultErrorMessage401: "You are not authenticated!",
+    DefaultErrorMessage401Detail: "You should sign in to perform this operation.",
+    DefaultErrorMessage403: "You are not authorized!",
+    DefaultErrorMessage403Detail: "You are not allowed to perform this operation!",
+    DefaultErrorMessage404: "Resource not found!",
+    DefaultErrorMessage404Detail: "The resource requested could not be found on the server!",
+    EntityNotFoundErrorMessage: "There is no entity {0} with id = {1}!",
+    EntityNotFoundErrorMessageWithoutId: "There is no entity {0}!",
+    AbpDbConcurrencyErrorMessage: "The data you have submitted has already been changed by another user. Discard your changes and try again.",
+    Error: "Error",
+    UnhandledException: "Unhandled exception!",
+    Authorizing: "Authorizing…",
+    "401Message": "Unauthorized",
+    "403Message": "Forbidden",
+    "404Message": "Page not found",
+    "500Message": "Internal Server Error",
+    "403MessageDetail": "You are not authorized to perform this operation!",
+    "404MessageDetail": "Sorry, there's nothing at this address.",
+    Unauthorized: "Unauthorized",
+    invalid_token: "Invalid token",
+    SessionExpired: "Your session has expired. Please login again to continue in the application.",
+  },
+};
