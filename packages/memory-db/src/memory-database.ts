@@ -1,7 +1,7 @@
 import { AbpException, IRootServiceProvider, Singleton, Transient, createToken, type AbstractClass, type Guid, type IServiceProvider } from "@abp/core";
 import { AbpDbConcurrencyException } from "@abp/data";
 import { IGuidGenerator, SimpleGuidGenerator } from "@abp/guids";
-import type { IEntityBase } from "@abp/ddd-domain";
+import { newConcurrencyStamp, type IEntityBase } from "@abp/ddd-domain";
 
 /** Port of `IMemoryDbSerializer`: how entities are stored ("persisted") in a collection. */
 export interface IMemoryDbSerializer {
@@ -100,6 +100,8 @@ export class MemoryDatabaseCollection<TEntity extends IEntityBase> implements IM
     if (hasConcurrencyStamp(entity) && hasConcurrencyStamp(originalEntity) && entity.concurrencyStamp !== originalEntity.concurrencyStamp) {
       throw new AbpDbConcurrencyException("Database operation expected to affect 1 row but actually affected 0 row. Data may have been modified or deleted since entities were loaded. This exception has been thrown on optimistic concurrency check.");
     }
+    // Like EF Core/DynamoDB, a successful update rotates the stamp so stale copies fail their next update.
+    if (hasConcurrencyStamp(entity)) entity.concurrencyStamp = newConcurrencyStamp();
     this.dictionary.set(key, this.memoryDbSerializer.serialize(entity));
   }
 
