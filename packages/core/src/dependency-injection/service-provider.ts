@@ -155,6 +155,8 @@ export class ServiceProvider implements IServiceProvider {
     if (descriptors.length === 0) {
       const optionsClass = optionsClassOf(key);
       if (optionsClass) return this.root.getOptionsManager(optionsClass);
+      const fallback = this.services._tryResolveFallback(key);
+      if (fallback) return this.resolveDescriptor(fallback, ctx);
     }
     const descriptor = descriptors[descriptors.length - 1];
     if (!descriptor) return undefined;

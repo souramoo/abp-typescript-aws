@@ -1,7 +1,7 @@
 {
   "name": "@abp/text-templating",
   "version": "0.1.0",
-  "description": "Port of Volo.Abp.TextTemplating(.Core)",
+  "description": "Port of Volo.Abp.TextTemplating(.Core/.Scriban)",
   "license": "LGPL-3.0",
   "type": "module",
   "exports": {

@@ -17,6 +17,7 @@
     "@abp/settings": "workspace:*",
     "@abp/localization": "workspace:*",
     "@abp/text-templating": "workspace:*",
-    "@abp/background-jobs": "workspace:*"
+    "@abp/background-jobs": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*"
   }
 }

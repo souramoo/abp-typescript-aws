@@ -16,6 +16,7 @@
     "@abp/core": "workspace:*",
     "@abp/localization": "workspace:*",
     "@abp/security": "workspace:*",
+    "@abp/multi-tenancy": "workspace:*",
     "@abp/multi-tenancy-abstractions": "workspace:*"
   }
 }

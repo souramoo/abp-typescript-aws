@@ -17,7 +17,10 @@
     "@abp/json": "workspace:*",
     "@abp/guids": "workspace:*",
     "@abp/timing": "workspace:*",
+    "@abp/multi-tenancy": "workspace:*",
     "@abp/multi-tenancy-abstractions": "workspace:*",
-    "@abp/background-workers": "workspace:*"
+    "@abp/background-workers": "workspace:*",
+    "@abp/distributed-locking": "workspace:*",
+    "@abp/data": "workspace:*"
   }
 }

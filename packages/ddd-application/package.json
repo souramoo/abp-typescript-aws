@@ -1,0 +1,35 @@
+{
+  "name": "@abp/ddd-application",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.Ddd.Application(.Contracts)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/ddd-application"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/ddd-domain": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "@abp/auditing": "workspace:*",
+    "@abp/data": "workspace:*",
+    "@abp/security": "workspace:*",
+    "@abp/object-mapping": "workspace:*",
+    "@abp/validation": "workspace:*",
+    "@abp/authorization": "workspace:*",
+    "@abp/settings": "workspace:*",
+    "@abp/features": "workspace:*",
+    "@abp/global-features": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/guids": "workspace:*",
+    "@abp/timing": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/object-extending": "workspace:*",
+    "zod": "^4.6.5"
+  }
+}

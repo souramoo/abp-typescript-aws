@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@abp/core": "workspace:*",
+    "@abp/multi-tenancy": "workspace:*",
     "@abp/multi-tenancy-abstractions": "workspace:*"
   }
 }

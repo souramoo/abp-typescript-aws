@@ -1,0 +1,27 @@
+{
+  "name": "@abp/memory-db",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.MemoryDb",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/memory-db"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/ddd-domain": "workspace:*",
+    "@abp/data": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/guids": "workspace:*",
+    "@abp/timing": "workspace:*",
+    "@abp/auditing": "workspace:*",
+    "@abp/event-bus": "workspace:*",
+    "@abp/json": "workspace:*"
+  }
+}

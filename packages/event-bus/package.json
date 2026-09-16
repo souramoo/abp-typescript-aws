@@ -15,6 +15,7 @@
   "dependencies": {
     "@abp/core": "workspace:*",
     "@abp/uow": "workspace:*",
+    "@abp/multi-tenancy": "workspace:*",
     "@abp/multi-tenancy-abstractions": "workspace:*",
     "@abp/json": "workspace:*",
     "@abp/guids": "workspace:*",

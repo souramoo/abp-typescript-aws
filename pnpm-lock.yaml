@@ -11,6 +11,12 @@ importers:
       '@types/node':
         specifier: ^22.20.3
         version: 22.20.3
+      aws-sdk-client-mock:
+        specifier: ^4.1.0
+        version: 4.1.0
+      aws-sdk-client-mock-vitest:
+        specifier: ^8.0.0
+        version: 8.0.0(@smithy/types@4.18.0)(aws-sdk-client-mock@4.1.0)(vitest@4.1.11(@types/node@22.20.3)(vite@8.3.0(@types/node@22.20.3)(esbuild@0.28.2)(tsx@4.23.13)))
       eslint:
         specifier: ^9.39.0
         version: 9.39.5
@@ -60,6 +66,9 @@ importers:
       '@abp/json':
         specifier: workspace:*
         version: link:../json
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../multi-tenancy
       '@abp/multi-tenancy-abstractions':
         specifier: workspace:*
         version: link:../multi-tenancy-abstractions
@@ -73,6 +82,39 @@ importers:
         specifier: workspace:*
         version: link:../uow
 
+  packages/auth-jwt:
+    dependencies:
+      '@abp/aws-lambda':
+        specifier: workspace:*
+        version: link:../aws-lambda
+      '@abp/caching':
+        specifier: workspace:*
+        version: link:../caching
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../guids
+      '@abp/http':
+        specifier: workspace:*
+        version: link:../http
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../security
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+      jose:
+        specifier: ^6.2.12
+        version: 6.2.12
+      zod:
+        specifier: ^4.6.5
+        version: 4.6.5
+
   packages/authorization:
     dependencies:
       '@abp/core':
@@ -81,12 +123,81 @@ importers:
       '@abp/localization':
         specifier: workspace:*
         version: link:../localization
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../multi-tenancy
       '@abp/multi-tenancy-abstractions':
         specifier: workspace:*
         version: link:../multi-tenancy-abstractions
       '@abp/security':
         specifier: workspace:*
         version: link:../security
+
+  packages/aws-lambda:
+    dependencies:
+      '@abp/auditing':
+        specifier: workspace:*
+        version: link:../auditing
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../authorization
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
+      '@abp/ddd-application':
+        specifier: workspace:*
+        version: link:../ddd-application
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../ddd-domain
+      '@abp/features':
+        specifier: workspace:*
+        version: link:../features
+      '@abp/global-features':
+        specifier: workspace:*
+        version: link:../global-features
+      '@abp/http':
+        specifier: workspace:*
+        version: link:../http
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../multi-tenancy
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/object-extending':
+        specifier: workspace:*
+        version: link:../object-extending
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../security
+      '@abp/settings':
+        specifier: workspace:*
+        version: link:../settings
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../validation
+      '@types/aws-lambda':
+        specifier: ^8.10.163
+        version: 8.10.163
+      zod:
+        specifier: ^4.6.5
+        version: 4.6.5
 
   packages/background-jobs:
     dependencies:
@@ -96,12 +207,21 @@ importers:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
+      '@abp/distributed-locking':
+        specifier: workspace:*
+        version: link:../distributed-locking
       '@abp/guids':
         specifier: workspace:*
         version: link:../guids
       '@abp/json':
         specifier: workspace:*
         version: link:../json
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../multi-tenancy
       '@abp/multi-tenancy-abstractions':
         specifier: workspace:*
         version: link:../multi-tenancy-abstractions
@@ -109,20 +229,59 @@ importers:
         specifier: workspace:*
         version: link:../timing
 
+  packages/background-jobs-aws:
+    dependencies:
+      '@abp/background-jobs':
+        specifier: workspace:*
+        version: link:../background-jobs
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@aws-sdk/client-sqs':
+        specifier: ^3.1133.0
+        version: 3.1133.0
+      '@types/aws-lambda':
+        specifier: ^8.10.163
+        version: 8.10.163
+
   packages/background-workers:
     dependencies:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
 
   packages/blob-storing:
     dependencies:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../multi-tenancy
       '@abp/multi-tenancy-abstractions':
         specifier: workspace:*
         version: link:../multi-tenancy-abstractions
+
+  packages/blob-storing-aws:
+    dependencies:
+      '@abp/blob-storing':
+        specifier: workspace:*
+        version: link:../blob-storing
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@aws-sdk/client-s3':
+        specifier: ^3.1133.0
+        version: 3.1133.0
 
   packages/caching:
     dependencies:
@@ -139,6 +298,21 @@ importers:
         specifier: workspace:*
         version: link:../uow
 
+  packages/caching-dynamodb:
+    dependencies:
+      '@abp/caching':
+        specifier: workspace:*
+        version: link:../caching
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@aws-sdk/client-dynamodb':
+        specifier: ^3.1133.0
+        version: 3.1133.0
+      '@aws-sdk/lib-dynamodb':
+        specifier: ^3.1133.0
+        version: 3.1133.0(@aws-sdk/client-dynamodb@3.1133.0)
+
   packages/core: {}
 
   packages/data:
@@ -153,11 +327,170 @@ importers:
         specifier: workspace:*
         version: link:../uow
 
+  packages/ddd-application:
+    dependencies:
+      '@abp/auditing':
+        specifier: workspace:*
+        version: link:../auditing
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../authorization
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../ddd-domain
+      '@abp/features':
+        specifier: workspace:*
+        version: link:../features
+      '@abp/global-features':
+        specifier: workspace:*
+        version: link:../global-features
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../guids
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/object-extending':
+        specifier: workspace:*
+        version: link:../object-extending
+      '@abp/object-mapping':
+        specifier: workspace:*
+        version: link:../object-mapping
+      '@abp/security':
+        specifier: workspace:*
+        version: link:../security
+      '@abp/settings':
+        specifier: workspace:*
+        version: link:../settings
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../validation
+      zod:
+        specifier: ^4.6.5
+        version: 4.6.5
+
+  packages/ddd-domain:
+    dependencies:
+      '@abp/auditing':
+        specifier: workspace:*
+        version: link:../auditing
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../event-bus
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../guids
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/object-extending':
+        specifier: workspace:*
+        version: link:../object-extending
+      '@abp/object-mapping':
+        specifier: workspace:*
+        version: link:../object-mapping
+      '@abp/specifications':
+        specifier: workspace:*
+        version: link:../specifications
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
+
   packages/distributed-locking:
     dependencies:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+
+  packages/distributed-locking-dynamodb:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/distributed-locking':
+        specifier: workspace:*
+        version: link:../distributed-locking
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+      '@aws-sdk/client-dynamodb':
+        specifier: ^3.1133.0
+        version: 3.1133.0
+      '@aws-sdk/lib-dynamodb':
+        specifier: ^3.1133.0
+        version: 3.1133.0(@aws-sdk/client-dynamodb@3.1133.0)
+
+  packages/dynamodb:
+    dependencies:
+      '@abp/auditing':
+        specifier: workspace:*
+        version: link:../auditing
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../ddd-domain
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../event-bus
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../guids
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/specifications':
+        specifier: workspace:*
+        version: link:../specifications
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
+      '@aws-sdk/client-dynamodb':
+        specifier: ^3.1133.0
+        version: 3.1133.0
+      '@aws-sdk/lib-dynamodb':
+        specifier: ^3.1133.0
+        version: 3.1133.0(@aws-sdk/client-dynamodb@3.1133.0)
 
   packages/emailing:
     dependencies:
@@ -170,12 +503,27 @@ importers:
       '@abp/localization':
         specifier: workspace:*
         version: link:../localization
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
       '@abp/settings':
         specifier: workspace:*
         version: link:../settings
       '@abp/text-templating':
         specifier: workspace:*
         version: link:../text-templating
+
+  packages/emailing-aws:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/emailing':
+        specifier: workspace:*
+        version: link:../emailing
+      '@aws-sdk/client-sesv2':
+        specifier: ^3.1133.0
+        version: 3.1133.0
 
   packages/event-bus:
     dependencies:
@@ -188,6 +536,9 @@ importers:
       '@abp/json':
         specifier: workspace:*
         version: link:../json
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../multi-tenancy
       '@abp/multi-tenancy-abstractions':
         specifier: workspace:*
         version: link:../multi-tenancy-abstractions
@@ -197,6 +548,30 @@ importers:
       '@abp/uow':
         specifier: workspace:*
         version: link:../uow
+
+  packages/event-bus-aws:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../event-bus
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@aws-sdk/client-sns':
+        specifier: ^3.1133.0
+        version: 3.1133.0
+      '@aws-sdk/client-sqs':
+        specifier: ^3.1133.0
+        version: 3.1133.0
+      '@types/aws-lambda':
+        specifier: ^8.10.163
+        version: 8.10.163
 
   packages/features:
     dependencies:
@@ -209,6 +584,9 @@ importers:
       '@abp/localization':
         specifier: workspace:*
         version: link:../localization
+      '@abp/multi-tenancy':
+        specifier: workspace:*
+        version: link:../multi-tenancy
       '@abp/multi-tenancy-abstractions':
         specifier: workspace:*
         version: link:../multi-tenancy-abstractions
@@ -221,6 +599,9 @@ importers:
 
   packages/global-features:
     dependencies:
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../authorization
       '@abp/core':
         specifier: workspace:*
         version: link:../core
@@ -233,6 +614,21 @@ importers:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+
+  packages/http:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      '@abp/validation':
+        specifier: workspace:*
+        version: link:../validation
 
   packages/json:
     dependencies:
@@ -248,6 +644,39 @@ importers:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+
+  packages/memory-db:
+    dependencies:
+      '@abp/auditing':
+        specifier: workspace:*
+        version: link:../auditing
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
+      '@abp/ddd-domain':
+        specifier: workspace:*
+        version: link:../ddd-domain
+      '@abp/event-bus':
+        specifier: workspace:*
+        version: link:../event-bus
+      '@abp/guids':
+        specifier: workspace:*
+        version: link:../guids
+      '@abp/json':
+        specifier: workspace:*
+        version: link:../json
+      '@abp/multi-tenancy-abstractions':
+        specifier: workspace:*
+        version: link:../multi-tenancy-abstractions
+      '@abp/timing':
+        specifier: workspace:*
+        version: link:../timing
+      '@abp/uow':
+        specifier: workspace:*
+        version: link:../uow
 
   packages/multi-tenancy:
     dependencies:
@@ -305,6 +734,9 @@ importers:
       '@abp/core':
         specifier: workspace:*
         version: link:../core
+      '@abp/data':
+        specifier: workspace:*
+        version: link:../data
       '@abp/localization':
         specifier: workspace:*
         version: link:../localization
@@ -321,7 +753,25 @@ importers:
         specifier: workspace:*
         version: link:../core
 
+  packages/sms-aws:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/sms':
+        specifier: workspace:*
+        version: link:../sms
+      '@aws-sdk/client-sns':
+        specifier: ^3.1133.0
+        version: 3.1133.0
+
   packages/specifications:
+    dependencies:
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+
+  packages/test-base:
     dependencies:
       '@abp/core':
         specifier: workspace:*
@@ -374,6 +824,122 @@ packages:
     bundledDependencies:
       - jsonschema
       - semver
+
+  '@aws-sdk/checksums@3.1001.0':
+    resolution: {integrity: sha512-6uTniZc87q+B5eXouGTl+7Tmc482rEeCcvxpsvREP8EfF0gvloRZ41UOA9sbSJlyy8TbqIBXb3kKfKarEArUQA==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/client-dynamodb@3.1133.0':
+    resolution: {integrity: sha512-oFgJwU1ODcQYuz4eeOzilfhtr1VOEicumIe7eAEkzkOpF24QOUbOaexUz/up6DVCycC1ysxI9SS2HS6waANOAg==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/client-s3@3.1133.0':
+    resolution: {integrity: sha512-b7IVvFjNxNt6i//qUr2tWQC1JhUY0HpIiM41vvXv30br/nuXjYtKAADrMFluxGYX0X7LQB5GvzUcFDxNOoLMLg==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/client-sesv2@3.1133.0':
+    resolution: {integrity: sha512-oYY2uiJF8myrGErOngDEt9/++D7ilw0SOb8skFW+IXlrmX0DxhEnhATsRuWo6+sb2/AFJNAWvX4n+XostJBe2A==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/client-sns@3.1133.0':
+    resolution: {integrity: sha512-cTmc/1Ss0aXBxv2QKId/VbAmWEodGy6Ho9gx74qcVptLB3D/TFz7IS84Lf2n3ukJDeq+U0dU4OnCAftzm2DTYA==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/client-sqs@3.1133.0':
+    resolution: {integrity: sha512-rSFfy/wCLFfKj6TtGZ5QE5/ncAHoqF4peSmdFuD/J4oBSI1B2OKMmcqa8dTHMrxccFIXz+i8WkkA+F+wA4XGnA==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/core@3.978.0':
+    resolution: {integrity: sha512-2yX9LUmxPklVjSGTb8dfnWRJSiFQ3TeH2nn7G1mdKHTfnabzF0+gfrS8rYfLWmZrQ8A3mEcxMJjRc51dL5KWaA==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/credential-provider-env@3.972.71':
+    resolution: {integrity: sha512-JN+JHruYZw3GUZB8YGAlDk4wTDPOEAEEdEzj5nS0xodWR4smzHsN7PnK2j6IeOsDIj2aqua5DSbhXl9Gtf90FQ==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/credential-provider-http@3.972.73':
+    resolution: {integrity: sha512-uyYYnJOnlis8uQzaYGPd7N1JoioCoNpXgnkXYixsWJXHXgXyYi8WXJSDfofxJeWfQIGWLe2Nwyq60Uc7MZdVOg==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/credential-provider-ini@3.973.16':
+    resolution: {integrity: sha512-i++ly+0Uxa+u3ebSSyr0S/3CFhFJDxCXT3+Zj+mW2bXenEx5bKGCdTIKFu39SgXBNhWDjex/8cXUx9MUTMCrTw==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/credential-provider-login@3.972.78':
+    resolution: {integrity: sha512-eUtswnXu0+Ii9ieRK+0L7aPFV3Z/dnW2VntJzjBP9xs8s+8p5nBNuymIXtXwZ+5r5+XJP3e32nMkuZ/r0HozEA==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/credential-provider-node@3.972.83':
+    resolution: {integrity: sha512-jdso7ejzfRnatxMUZK4S/U6KbaDPCvfIV4XL+IQAPFDBt5rj5Fq595euqlK8Le4lNCMFR9oUpt+1l0aMgaayOQ==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/credential-provider-process@3.972.71':
+    resolution: {integrity: sha512-lYmXJa4gvq4xN1lrT5NiP5vIYYKcGWAdj8y+8o6dlcateB5eF3Dn8DtmjjHKfMBrTPAMr2pebIiX/UOj8c1/UA==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/credential-provider-sso@3.973.15':
+    resolution: {integrity: sha512-6Jhcf4v0pSFdjk1EW2kvzuEBKD+UZ2uNcHUIglKKLndD20YhvkL2kdmDOV5/j4mYuWWwe/a1FQ1aomU86/Cg5Q==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/credential-provider-web-identity@3.972.77':
+    resolution: {integrity: sha512-uylIQSUWpfLuH2LovxEEfwzJGM/SabLOfLMg6YXu/E8jJEKUdpdILCVCQCdFvHyu/7dLJOHPMfrSwduxO56NkQ==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/dynamodb-codec@3.973.45':
+    resolution: {integrity: sha512-WMnbfe3igJy14RRzEnLDW9G2V0WbrXdnp2UYAGYJIgbB1wR33bBle0dmbVnejs6sHJWfP2N1cAAx/QxXnoyK8w==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/endpoint-cache@3.972.11':
+    resolution: {integrity: sha512-8q1ICxcDjHId3bBryuu/j+1L9y5/3uQnwzLDt5j2ElcjZSoWmFtymdJy7OjLrluSMe0Z4mq5bcH4fxBXvlEHfw==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/lib-dynamodb@3.1133.0':
+    resolution: {integrity: sha512-DWq+1qDHF4kuOzEKOvd4BSIemwCVZyiroBECVEuQOzVC/qOnO2raLI1ffH8QFDVuKEa09QGz1duZsr2SIz4lVA==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      '@aws-sdk/client-dynamodb': ^3.1133.0
+
+  '@aws-sdk/middleware-endpoint-discovery@3.972.30':
+    resolution: {integrity: sha512-0hmD7/NG2NoVOVHvUb6rtY5POQYr+/9gdHvrYhIBA1zmCqKOBd5Gz3dL+iZ15FHOJbs/5kLplGoePc8PHTlzYA==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/middleware-sdk-s3@3.972.76':
+    resolution: {integrity: sha512-NfnTkVUTBKTBuBgqaapFK9r3YdkKt1b2oRvgLzZq91bwNKh6ZS0S7sEcheguttREaL4iyfs/xQnqD7Z7AsWSsA==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/middleware-sdk-sqs@3.972.42':
+    resolution: {integrity: sha512-D/O6iHAqlm0b430vIGewanSsr5RzaWbSDFlHYdKLWlZb4kaMKBmb44ReNHAFEKj5tNRY8pysw0qfciosB/VcJg==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/nested-clients@3.997.45':
+    resolution: {integrity: sha512-mooq9Q+jLa18VoM7HouczmslZU60iiB0aKc/Ztnq/luIL1ud0z4DnYprLR/ZO1gp331S9tJctM1HZr7u6YKBXQ==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/signature-v4-multi-region@3.996.46':
+    resolution: {integrity: sha512-L+2xZTye/2T96f3lwCws0Zw6GG2JHZW9e8FpVgGBeeExSKyeoZ6CWRpBml/7DNiK/O26jrgPM9F+Ay8VkgzUWQ==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/token-providers@3.1129.0':
+    resolution: {integrity: sha512-Sbl3rpzQdsG4ZK2zh0JWUYyZPKKorJlVOddA2T0DVbKJFrsW8J6wgnslxxUH04+WaBMr4A1HzJZvZX0xUvkniA==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/types@3.974.5':
+    resolution: {integrity: sha512-LkwLL2BLbC6wNNm4JaH9mbEqBMdOZCct6VAYqhdN4U1xrWM+fUJQEfbHwQgDypapOWTRtlk25akb5afM0P8CIQ==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws-sdk/util-dynamodb@3.996.9':
+    resolution: {integrity: sha512-16x2tRvl7OYpZ0W/DdFJieFriD13+RvuRBDbe5sj/tCEfK86HSGd7I2s5j0ivz8p6KWGkS+5wKRO9OliJkjUOQ==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      '@aws-sdk/client-dynamodb': ^3.1111.0
+
+  '@aws-sdk/xml-builder@3.972.40':
+    resolution: {integrity: sha512-wlFmCIGUlwF4zx/kncw+bmxTQh1HeSJq4mYV/V5cZUSJadDP3kXvGW8Rn21cimj/7y9ju+47oYWXi97vF7czaA==}
+    engines: {node: '>=20.0.0'}
+
+  '@aws/lambda-invoke-store@0.3.0':
+    resolution: {integrity: sha512-sl4Bm6yiMNYrZKkqqDFWN0UfnWhlS8ivKxrYl+6t0gCLrqr8y3B2IqZZbFRkfaVVp7C/baApyh71P+LeE1A2sQ==}
+    engines: {node: '>=18.0.0'}
 
   '@esbuild/aix-ppc64@0.28.2':
     resolution: {integrity: sha512-XExcO+dvLKvVtNTibSTBej1NCAbaGhWn9Ww1ZPx80qsahhPFe/8jgWP0IchNe0F3HwkU7n8ejhH8bjonqht8mQ==}
@@ -694,8 +1260,47 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
+  '@sinonjs/commons@3.0.1':
+    resolution: {integrity: sha512-K3mCHKQ9sVh8o1C9cxkwxaOmXoAMlDxC1mYyHrjqOWEcBjYr76t96zL2zlj5dUGZ3HSw240X1qgH3Mjf1yJWpQ==}
+
+  '@sinonjs/fake-timers@11.2.2':
+    resolution: {integrity: sha512-G2piCSxQ7oWOxwGSAyFHfPIsyeJGXYtc6mFbnFA+kRXkiEnTl8c/8jul2S329iFBnDI9HGoeWWAZvuvOkZccgw==}
+
+  '@sinonjs/fake-timers@15.4.0':
+    resolution: {integrity: sha512-DsG+8/LscQIQg68J6Ef3dv10u6nVyetYn923s3/sus5eaGfTo1of5WMZSLf0UJc9KDuKPilPH0UDJCjvNbDNCA==}
+
+  '@sinonjs/samsam@8.0.3':
+    resolution: {integrity: sha512-hw6HbX+GyVZzmaYNh82Ecj1vdGZrqVIn/keDTg63IgAwiQPO+xCz99uG6Woqgb4tM0mUiFENKZ4cqd7IX94AXQ==}
+
+  '@smithy/core@3.34.1':
+    resolution: {integrity: sha512-dLcOUxz8YCv1RZUMKq6GbyUf95pLbrqh34bPvpCZ1+CByFF31BEAFewZjsGCnVsZTKdThNENfGyAgk2TJqVwSw==}
+    engines: {node: '>=18.0.0'}
+
+  '@smithy/credential-provider-imds@4.5.2':
+    resolution: {integrity: sha512-A9uSdn72ozbRUSit0eib0TW7nXuNPlaeM0zcGkJ+nE6tFcSDbnmtwoxbTCFBukVQcszDAyvsd7+rTduPTXpygg==}
+    engines: {node: '>=18.0.0'}
+
+  '@smithy/fetch-http-handler@5.8.0':
+    resolution: {integrity: sha512-ycSJu3tFAQ4v04CBB0agqFMVsSQ1iG3yw+SpgxRqKfaURpQD4CZ8Wn0zPMmSnOuTpTh65Vz+EA0rMrw089wvkA==}
+    engines: {node: '>=18.0.0'}
+
+  '@smithy/node-http-handler@4.12.1':
+    resolution: {integrity: sha512-ThMkboGeONWXAelq9FvGsuJC4rOi+qyC4/zhUF58xYpxUg5sQKx2VXZYJmtNjr4dSuBJ1HeJXETQILCz3wOHvw==}
+    engines: {node: '>=18.0.0'}
+
+  '@smithy/signature-v4@5.7.3':
+    resolution: {integrity: sha512-7ImGm+FkHRLcBaRttIAMZ6bzJZWb2cJGoYjq46F2UjycujWzrL9GEN9h4w7eQyXJYnltrUhxbbieBAIRrdqpow==}
+    engines: {node: '>=18.0.0'}
+
+  '@smithy/types@4.18.0':
+    resolution: {integrity: sha512-CgB6HHWer/vrKps24ulRIbpcpb7K4xAU7SkZ7YHzBPlwHsvsrCJFEXK421s+cJzX+ZrqtA/TuU5w1HzI7k9N8A==}
+    engines: {node: '>=18.0.0'}
+
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
+
+  '@types/aws-lambda@8.10.163':
+    resolution: {integrity: sha512-+4zuoEB3S8RIhimtOFT7zAEk2SbpwrKjjGl9CyYnQR6k08uynxfauIIB0pDU1ssr05F8oyGiETwpn+8eXZMqPw==}
 
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
@@ -711,6 +1316,12 @@ packages:
 
   '@types/node@22.20.3':
     resolution: {integrity: sha512-DZmzkmwHzXrLPAXPyKNDzlIwMMUZCVacoD25ywdy5YTKGbOx/2ld+Q38Im2zJ0vBuZP5Prd3VZutKZyXwkOS8A==}
+
+  '@types/sinon@17.0.4':
+    resolution: {integrity: sha512-RHnIrhfPO3+tJT0s7cFaXGZvsL4bbR3/k7z3P312qMS4JaS2Tk+KiwiLx1S0rQ56ERj00u1/BtdyVd0FY+Pdew==}
+
+  '@types/sinonjs__fake-timers@15.0.1':
+    resolution: {integrity: sha512-Ko2tjWJq8oozHzHV+reuvS5KYIRAokHnGbDwGh/J64LntgpbuylF74ipEL24HCyRjf9FOlBiBHWBR1RlVKsI1w==}
 
   '@typescript-eslint/eslint-plugin@8.70.0':
     resolution: {integrity: sha512-/v8HZt6RlyIZxB3ntehELOcUcfxKPVGWXnQdJuHRmzrqgF8nQypcC/oxGW+Ot4VGKDq81XugPKxx0n5PBtf9PA==}
@@ -848,12 +1459,26 @@ packages:
     engines: {node: '>= 18.0.0'}
     hasBin: true
 
+  aws-sdk-client-mock-vitest@8.0.0:
+    resolution: {integrity: sha512-GMW7Q3V6ZOn6jMMrw7xoqsl3fLxEY4p9EE0CvWjvsssEbSbV0ZNsTKhgQXxon3Cfx/7zzRYKPdpvqRyzLAFEHQ==}
+    engines: {node: ^22.12.0 || >=24.0.0}
+    peerDependencies:
+      '@smithy/types': '>=3.5.0'
+      aws-sdk-client-mock: '>=2.2.0'
+      vitest: ^5.0.0
+
+  aws-sdk-client-mock@4.1.0:
+    resolution: {integrity: sha512-h/tOYTkXEsAcV3//6C1/7U4ifSpKyJvb6auveAepqqNJl6TdZaPFEtKjBQNf8UxQdDP850knB2i/whq4zlsxJw==}
+
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
   balanced-match@4.0.4:
     resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
     engines: {node: 18 || 20 || >=22}
+
+  bowser@2.14.1:
+    resolution: {integrity: sha512-tzPjzCxygAKWFOJP011oxFHs57HzIhOEracIgAePE4pqB3LikALKnSzUyU4MGs9/iCEUuHlAJTjTc5M+u7YEGg==}
 
   brace-expansion@1.1.21:
     resolution: {integrity: sha512-9zeA+KLZNNzglF2TPKRQEDyx6Yby7daAkuy8MiPzpXPsYDWi/DRM8jmwUDxokQjYqBpv5DgPiwD4h4ZZSy1Ujw==}
@@ -909,6 +1534,10 @@ packages:
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
+
+  diff@5.2.2:
+    resolution: {integrity: sha512-vtcDfH3TOjP8UekytvnHH1o1P4FcUdt4eQ1Y+Abap1tk/OB2MWQvcwS2ClCd1zuIhc3JKOx6p3kod8Vfys3E+A==}
+    engines: {node: '>=0.3.1'}
 
   es-module-lexer@2.3.2:
     resolution: {integrity: sha512-poHGpORABojJJucnV9KbOavETW8lBVnphkW77ER5/BQ5Fz7oXSoCNek7IH3vR5nRjdsEz926ibFYX8KtLQmdyw==}
@@ -1053,6 +1682,9 @@ packages:
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
+  jose@6.2.12:
+    resolution: {integrity: sha512-9NiFmJEex0sy2Dk58j2UGBSHgUs2ypF9eZSu4L6vjOX3Dp96Sw1F3uL+H+D1sx02jZZdzUT0HgvCy59CuvXcWw==}
+
   js-yaml@4.3.2:
     resolution: {integrity: sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==}
     hasBin: true
@@ -1065,6 +1697,9 @@ packages:
 
   json-stable-stringify-without-jsonify@1.0.1:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
+
+  just-extend@6.2.0:
+    resolution: {integrity: sha512-cYofQu2Xpom82S6qD778jBDpwvvy39s1l/hrYij2u9AMdQcGRpaBu6kY4mVhuno5kJVi1DAz4aiphA2WI1/OAw==}
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -1164,6 +1799,9 @@ packages:
   minimatch@3.1.5:
     resolution: {integrity: sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w==}
 
+  mnemonist@0.38.3:
+    resolution: {integrity: sha512-2K9QYubXx/NAjv4VLq1d1Ly8pWNC5L3BrixtdkyTegXWJIqY+zLNDhhX/A+ZwWt70tB1S8H4BE8FLYEFyNoOBw==}
+
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
@@ -1174,6 +1812,12 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+
+  nise@6.1.5:
+    resolution: {integrity: sha512-SnRDPDBjxZZoU2n0+gzzLtSvo1OZo7j6jnbXsoh3AFxEGhaFU7ZF0TmefuKERq79wxR2U+MPn7ArW+Tl+clC3A==}
+
+  obliterator@1.6.1:
+    resolution: {integrity: sha512-9WXswnqINnnhOG/5SLimUlzuU1hFJUc8zkwyD59Sd+dPOMf05PmnYG/d6Q7HZ+KmgkZJa1PxRso6QdM3sTNHig==}
 
   obug@2.2.1:
     resolution: {integrity: sha512-XrsrhT5sybtKI6wakr2SPOlGZWWYbUXZ7a0jT8/QOeAPau+1X/bSegNe5YR75oJmEZQbKningirmGOEJCIk61Q==}
@@ -1202,6 +1846,9 @@ packages:
   path-key@3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==}
     engines: {node: '>=8'}
+
+  path-to-regexp@8.4.2:
+    resolution: {integrity: sha512-qRcuIdP69NPm4qbACK+aDogI5CBDMi1jKe0ry5rSQJz8JVLsC7jV8XpiJjGRLLol3N+R5ihGYcrPLTno6pAdBA==}
 
   pathe@2.0.3:
     resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
@@ -1250,6 +1897,9 @@ packages:
   siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}
 
+  sinon@18.0.1:
+    resolution: {integrity: sha512-a2N2TDY1uGviajJ6r4D1CyRAkzE9NNVlYOV1wX5xQDuAk0ONgzgRl0EjCQuRCPxOwp13ghsMwt9Gdldujs39qw==}
+
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
@@ -1289,6 +1939,9 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
   tsx@4.23.13:
     resolution: {integrity: sha512-BL5MGkRln6aDYhb0xbQlEAGw743BaZYWdbWtdJOBriYJboKgUUYCadFp2/FpBBZquBC/ezNBn7wMMPx7FDZUDw==}
     engines: {node: '>=18.0.0'}
@@ -1297,6 +1950,14 @@ packages:
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
+
+  type-detect@4.0.8:
+    resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
+    engines: {node: '>=4'}
+
+  type-detect@4.1.0:
+    resolution: {integrity: sha512-Acylog8/luQ8L7il+geoSxhEkazvkslg7PSNKOX59mbB9cOveP5aq9h74Y7YU8yDpJwetzQQrfIwtf4Wp4LKcw==}
+    engines: {node: '>=4'}
 
   typescript-eslint@8.70.0:
     resolution: {integrity: sha512-P/W5cz70/cQAuKfY3xwQMWWTV7BvJ0mAQmi+9mBcsVPaBUpd6Ohpa+fECv9rBFrQcig86jAiNBFNWUqnTjr4pw==}
@@ -1428,6 +2089,260 @@ snapshots:
   '@aws-cdk/asset-node-proxy-agent-v6@2.1.3': {}
 
   '@aws-cdk/cloud-assembly-schema@54.23.0': {}
+
+  '@aws-sdk/checksums@3.1001.0':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/client-dynamodb@3.1133.0':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/credential-provider-node': 3.972.83
+      '@aws-sdk/dynamodb-codec': 3.973.45
+      '@aws-sdk/middleware-endpoint-discovery': 3.972.30
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/fetch-http-handler': 5.8.0
+      '@smithy/node-http-handler': 4.12.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/client-s3@3.1133.0':
+    dependencies:
+      '@aws-sdk/checksums': 3.1001.0
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/credential-provider-node': 3.972.83
+      '@aws-sdk/middleware-sdk-s3': 3.972.76
+      '@aws-sdk/signature-v4-multi-region': 3.996.46
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/fetch-http-handler': 5.8.0
+      '@smithy/node-http-handler': 4.12.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/client-sesv2@3.1133.0':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/credential-provider-node': 3.972.83
+      '@aws-sdk/signature-v4-multi-region': 3.996.46
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/fetch-http-handler': 5.8.0
+      '@smithy/node-http-handler': 4.12.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/client-sns@3.1133.0':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/credential-provider-node': 3.972.83
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/fetch-http-handler': 5.8.0
+      '@smithy/node-http-handler': 4.12.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/client-sqs@3.1133.0':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/credential-provider-node': 3.972.83
+      '@aws-sdk/middleware-sdk-sqs': 3.972.42
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/fetch-http-handler': 5.8.0
+      '@smithy/node-http-handler': 4.12.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/core@3.978.0':
+    dependencies:
+      '@aws-sdk/types': 3.974.5
+      '@aws-sdk/xml-builder': 3.972.40
+      '@aws/lambda-invoke-store': 0.3.0
+      '@smithy/core': 3.34.1
+      '@smithy/signature-v4': 5.7.3
+      '@smithy/types': 4.18.0
+      bowser: 2.14.1
+      tslib: 2.8.1
+
+  '@aws-sdk/credential-provider-env@3.972.71':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/credential-provider-http@3.972.73':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/fetch-http-handler': 5.8.0
+      '@smithy/node-http-handler': 4.12.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/credential-provider-ini@3.973.16':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/credential-provider-env': 3.972.71
+      '@aws-sdk/credential-provider-http': 3.972.73
+      '@aws-sdk/credential-provider-login': 3.972.78
+      '@aws-sdk/credential-provider-process': 3.972.71
+      '@aws-sdk/credential-provider-sso': 3.973.15
+      '@aws-sdk/credential-provider-web-identity': 3.972.77
+      '@aws-sdk/nested-clients': 3.997.45
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/credential-provider-imds': 4.5.2
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/credential-provider-login@3.972.78':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/nested-clients': 3.997.45
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/credential-provider-node@3.972.83':
+    dependencies:
+      '@aws-sdk/credential-provider-env': 3.972.71
+      '@aws-sdk/credential-provider-http': 3.972.73
+      '@aws-sdk/credential-provider-ini': 3.973.16
+      '@aws-sdk/credential-provider-process': 3.972.71
+      '@aws-sdk/credential-provider-sso': 3.973.15
+      '@aws-sdk/credential-provider-web-identity': 3.972.77
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/credential-provider-imds': 4.5.2
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/credential-provider-process@3.972.71':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/credential-provider-sso@3.973.15':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/nested-clients': 3.997.45
+      '@aws-sdk/token-providers': 3.1129.0
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/credential-provider-web-identity@3.972.77':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/nested-clients': 3.997.45
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/dynamodb-codec@3.973.45':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/endpoint-cache@3.972.11':
+    dependencies:
+      mnemonist: 0.38.3
+      tslib: 2.8.1
+
+  '@aws-sdk/lib-dynamodb@3.1133.0(@aws-sdk/client-dynamodb@3.1133.0)':
+    dependencies:
+      '@aws-sdk/client-dynamodb': 3.1133.0
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/util-dynamodb': 3.996.9(@aws-sdk/client-dynamodb@3.1133.0)
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/middleware-endpoint-discovery@3.972.30':
+    dependencies:
+      '@aws-sdk/endpoint-cache': 3.972.11
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/middleware-sdk-s3@3.972.76':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/signature-v4-multi-region': 3.996.46
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/middleware-sdk-sqs@3.972.42':
+    dependencies:
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/nested-clients@3.997.45':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/signature-v4-multi-region': 3.996.46
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/fetch-http-handler': 5.8.0
+      '@smithy/node-http-handler': 4.12.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/signature-v4-multi-region@3.996.46':
+    dependencies:
+      '@aws-sdk/types': 3.974.5
+      '@smithy/signature-v4': 5.7.3
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/token-providers@3.1129.0':
+    dependencies:
+      '@aws-sdk/core': 3.978.0
+      '@aws-sdk/nested-clients': 3.997.45
+      '@aws-sdk/types': 3.974.5
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/types@3.974.5':
+    dependencies:
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws-sdk/util-dynamodb@3.996.9(@aws-sdk/client-dynamodb@3.1133.0)':
+    dependencies:
+      '@aws-sdk/client-dynamodb': 3.1133.0
+      tslib: 2.8.1
+
+  '@aws-sdk/xml-builder@3.972.40':
+    dependencies:
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@aws/lambda-invoke-store@0.3.0': {}
 
   '@esbuild/aix-ppc64@0.28.2':
     optional: true
@@ -1620,7 +2535,59 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
+  '@sinonjs/commons@3.0.1':
+    dependencies:
+      type-detect: 4.0.8
+
+  '@sinonjs/fake-timers@11.2.2':
+    dependencies:
+      '@sinonjs/commons': 3.0.1
+
+  '@sinonjs/fake-timers@15.4.0':
+    dependencies:
+      '@sinonjs/commons': 3.0.1
+
+  '@sinonjs/samsam@8.0.3':
+    dependencies:
+      '@sinonjs/commons': 3.0.1
+      type-detect: 4.1.0
+
+  '@smithy/core@3.34.1':
+    dependencies:
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@smithy/credential-provider-imds@4.5.2':
+    dependencies:
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@smithy/fetch-http-handler@5.8.0':
+    dependencies:
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@smithy/node-http-handler@4.12.1':
+    dependencies:
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@smithy/signature-v4@5.7.3':
+    dependencies:
+      '@smithy/core': 3.34.1
+      '@smithy/types': 4.18.0
+      tslib: 2.8.1
+
+  '@smithy/types@4.18.0':
+    dependencies:
+      tslib: 2.8.1
+
   '@standard-schema/spec@1.1.0': {}
+
+  '@types/aws-lambda@8.10.163': {}
 
   '@types/chai@5.2.3':
     dependencies:
@@ -1636,6 +2603,12 @@ snapshots:
   '@types/node@22.20.3':
     dependencies:
       undici-types: 6.21.0
+
+  '@types/sinon@17.0.4':
+    dependencies:
+      '@types/sinonjs__fake-timers': 15.0.1
+
+  '@types/sinonjs__fake-timers@15.0.1': {}
 
   '@typescript-eslint/eslint-plugin@8.70.0(@typescript-eslint/parser@8.70.0(eslint@9.39.5)(typescript@5.9.3))(eslint@9.39.5)(typescript@5.9.3)':
     dependencies:
@@ -1799,9 +2772,23 @@ snapshots:
 
   aws-cdk@2.1141.0: {}
 
+  aws-sdk-client-mock-vitest@8.0.0(@smithy/types@4.18.0)(aws-sdk-client-mock@4.1.0)(vitest@4.1.11(@types/node@22.20.3)(vite@8.3.0(@types/node@22.20.3)(esbuild@0.28.2)(tsx@4.23.13))):
+    dependencies:
+      '@smithy/types': 4.18.0
+      aws-sdk-client-mock: 4.1.0
+      vitest: 4.1.11(@types/node@22.20.3)(vite@8.3.0(@types/node@22.20.3)(esbuild@0.28.2)(tsx@4.23.13))
+
+  aws-sdk-client-mock@4.1.0:
+    dependencies:
+      '@types/sinon': 17.0.4
+      sinon: 18.0.1
+      tslib: 2.8.1
+
   balanced-match@1.0.2: {}
 
   balanced-match@4.0.4: {}
+
+  bowser@2.14.1: {}
 
   brace-expansion@1.1.21:
     dependencies:
@@ -1846,6 +2833,8 @@ snapshots:
   deep-is@0.1.4: {}
 
   detect-libc@2.1.2: {}
+
+  diff@5.2.2: {}
 
   es-module-lexer@2.3.2: {}
 
@@ -2010,6 +2999,8 @@ snapshots:
 
   isexe@2.0.0: {}
 
+  jose@6.2.12: {}
+
   js-yaml@4.3.2:
     dependencies:
       argparse: 2.0.1
@@ -2019,6 +3010,8 @@ snapshots:
   json-schema-traverse@0.4.1: {}
 
   json-stable-stringify-without-jsonify@1.0.1: {}
+
+  just-extend@6.2.0: {}
 
   keyv@4.5.4:
     dependencies:
@@ -2096,11 +3089,24 @@ snapshots:
     dependencies:
       brace-expansion: 1.1.21
 
+  mnemonist@0.38.3:
+    dependencies:
+      obliterator: 1.6.1
+
   ms@2.1.3: {}
 
   nanoid@3.3.19: {}
 
   natural-compare@1.4.0: {}
+
+  nise@6.1.5:
+    dependencies:
+      '@sinonjs/commons': 3.0.1
+      '@sinonjs/fake-timers': 15.4.0
+      just-extend: 6.2.0
+      path-to-regexp: 8.4.2
+
+  obliterator@1.6.1: {}
 
   obug@2.2.1: {}
 
@@ -2128,6 +3134,8 @@ snapshots:
   path-exists@4.0.0: {}
 
   path-key@3.1.1: {}
+
+  path-to-regexp@8.4.2: {}
 
   pathe@2.0.3: {}
 
@@ -2178,6 +3186,15 @@ snapshots:
 
   siginfo@2.0.0: {}
 
+  sinon@18.0.1:
+    dependencies:
+      '@sinonjs/commons': 3.0.1
+      '@sinonjs/fake-timers': 11.2.2
+      '@sinonjs/samsam': 8.0.3
+      diff: 5.2.2
+      nise: 6.1.5
+      supports-color: 7.2.0
+
   source-map-js@1.2.1: {}
 
   stackback@0.0.2: {}
@@ -2205,6 +3222,8 @@ snapshots:
     dependencies:
       typescript: 5.9.3
 
+  tslib@2.8.1: {}
+
   tsx@4.23.13:
     dependencies:
       esbuild: 0.28.2
@@ -2214,6 +3233,10 @@ snapshots:
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
+
+  type-detect@4.0.8: {}
+
+  type-detect@4.1.0: {}
 
   typescript-eslint@8.70.0(eslint@9.39.5)(typescript@5.9.3):
     dependencies:

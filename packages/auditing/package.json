@@ -15,11 +15,12 @@
   "dependencies": {
     "@abp/core": "workspace:*",
     "@abp/data": "workspace:*",
-    "@abp/security": "workspace:*",
-    "@abp/multi-tenancy-abstractions": "workspace:*",
     "@abp/json": "workspace:*",
-    "@abp/guids": "workspace:*",
     "@abp/timing": "workspace:*",
-    "@abp/uow": "workspace:*"
+    "@abp/security": "workspace:*",
+    "@abp/multi-tenancy": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/guids": "workspace:*"
   }
 }

@@ -13,6 +13,7 @@
     "test": "vitest run --root ../.. packages/background-workers"
   },
   "dependencies": {
-    "@abp/core": "workspace:*"
+    "@abp/core": "workspace:*",
+    "@abp/data": "workspace:*"
   }
 }

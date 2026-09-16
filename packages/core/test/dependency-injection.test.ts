@@ -229,3 +229,24 @@ describe("markers", () => {
     expect(getMethodNames(Child).sort()).toEqual(["a", "b"]);
   });
 });
+
+import { ServiceLifetime as SL } from "../src/index.js";
+describe("fallback resolvers", () => {
+  it("resolve keyed tokens on demand like open generics", () => {
+    const services = new ServiceCollection();
+    const IRepo = createToken("IRepository");
+    class Book {}
+    class Repo {
+      constructor(readonly entity: unknown = undefined) {}
+    }
+    services.addFallbackResolver((key) => {
+      if (key === keyedToken(IRepo, Book)) return { lifetime: SL.Singleton, implementation: { useFactory: () => new Repo(Book) } };
+      return undefined;
+    });
+    const provider = services.buildServiceProvider();
+    const repo = provider.getRequired(keyedToken<Repo>(IRepo, Book));
+    expect(repo.entity).toBe(Book);
+    expect(provider.getRequired(keyedToken<Repo>(IRepo, Book))).toBe(repo);
+    expect(provider.get(keyedToken(IRepo, class Other {}))).toBeUndefined();
+  });
+});

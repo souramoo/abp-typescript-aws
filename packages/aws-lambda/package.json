@@ -1,0 +1,38 @@
+{
+  "name": "@abp/aws-lambda",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.AspNetCore + AspNetCore.Mvc(.Contracts) + AspNetCore.MultiTenancy for AWS Lambda / API Gateway",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/aws-lambda"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/http": "workspace:*",
+    "@abp/json": "workspace:*",
+    "@abp/auditing": "workspace:*",
+    "@abp/security": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/authorization": "workspace:*",
+    "@abp/validation": "workspace:*",
+    "@abp/multi-tenancy": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "@abp/settings": "workspace:*",
+    "@abp/features": "workspace:*",
+    "@abp/global-features": "workspace:*",
+    "@abp/timing": "workspace:*",
+    "@abp/data": "workspace:*",
+    "@abp/object-extending": "workspace:*",
+    "@abp/ddd-application": "workspace:*",
+    "@abp/ddd-domain": "workspace:*",
+    "@types/aws-lambda": "^8.10.163",
+    "zod": "^4.6.5"
+  }
+}

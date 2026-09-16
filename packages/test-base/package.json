@@ -1,0 +1,18 @@
+{
+  "name": "@abp/test-base",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.TestBase",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/test-base"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*"
+  }
+}

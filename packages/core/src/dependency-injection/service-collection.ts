@@ -16,6 +16,8 @@ function toImplementation<T>(input: ImplementationInput<T>): ServiceImplementati
   return { kind: "value", value: input.useValue };
 }
 
+export type FallbackResolver = (key: ServiceKey, services: ServiceCollection) => { lifetime: ServiceLifetime; implementation: ImplementationInput<unknown> } | undefined;
+
 export interface IOnServiceActivatedContext {
   readonly instance: object;
   readonly implementationType: Class;
@@ -33,6 +35,7 @@ export class ServiceCollection {
   private readonly interceptorCache = new Map<Class, readonly Class<IAbpInterceptor>[]>();
   private readonly conventionallyRegistered = new Set<Class>();
   readonly options = new OptionsRegistry();
+  private readonly fallbackResolvers: FallbackResolver[] = [];
   private readOnly = false;
 
   get isReadOnly(): boolean {
@@ -196,6 +199,33 @@ export class ServiceCollection {
 
   addTypes(...types: Class[]): void {
     for (const t of types) this.addType(t);
+  }
+
+  /**
+   * Port of open-generic registrations (`services.AddTransient(typeof(IRepository<>), typeof(Repo<>))`):
+   * when a key has no registration, fallback resolvers may supply one on first resolution.
+   * The descriptor returned is added permanently (also after the provider was built).
+   */
+  addFallbackResolver(resolver: FallbackResolver): void {
+    this.fallbackResolvers.push(resolver);
+  }
+
+  /** @internal Used by the provider for keys without a registration. */
+  _tryResolveFallback(key: ServiceKey): ServiceDescriptor | undefined {
+    for (const resolver of this.fallbackResolvers) {
+      const result = resolver(key, this);
+      if (!result) continue;
+      const descriptor: ServiceDescriptor = {
+        key,
+        lifetime: result.lifetime,
+        implementation: toImplementation(result.implementation as ImplementationInput<unknown>),
+        exposedKeys: [key],
+      };
+      this.descriptors.push(descriptor);
+      this.triggerRegistered(descriptor);
+      return descriptor;
+    }
+    return undefined;
   }
 
   buildServiceProvider(): IServiceProvider {

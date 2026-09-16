@@ -69,6 +69,8 @@ application → domain + application-contracts; domain → domain-shared; dynamo
   Infrastructure that begins scopes on behalf of a caller (interceptors, seeders, resolvers) wraps the call in
   `forkAmbientScope(fn)` / `provider.fork(fn)` or uses the `run(value, fn)` form.
 - Cross-cutting concern names live in `AbpCrossCuttingConcerns` (core) and are used with `AppliedCrossCuttingConcerns`.
+- Open generics (`IRepository<T>`, `IDistributedCache<T>`, `IBlobContainer<T>`): use `keyedToken(Base, T)` plus
+  `services.addFallbackResolver((key, services) => …)` so unknown keyed tokens resolve on first use.
 
 ## Serverless mapping
 

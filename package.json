@@ -5,7 +5,9 @@
   "description": "TypeScript + serverless AWS port of the ABP framework (abp.io)",
   "license": "LGPL-3.0",
   "packageManager": "pnpm@11.9.0",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "type": "module",
   "scripts": {
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -23,6 +25,8 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.70.0",
     "tsx": "^4.23.13",
-    "vitest": "^4.0.0"
+    "vitest": "^4.0.0",
+    "aws-sdk-client-mock": "^4.1.0",
+    "aws-sdk-client-mock-vitest": "^8.0.0"
   }
 }

@@ -1,0 +1,30 @@
+{
+  "name": "@abp/ddd-domain",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.Ddd.Domain(.Shared)",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/ddd-domain"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/auditing": "workspace:*",
+    "@abp/data": "workspace:*",
+    "@abp/event-bus": "workspace:*",
+    "@abp/guids": "workspace:*",
+    "@abp/timing": "workspace:*",
+    "@abp/object-mapping": "workspace:*",
+    "@abp/specifications": "workspace:*",
+    "@abp/multi-tenancy-abstractions": "workspace:*",
+    "@abp/uow": "workspace:*",
+    "@abp/object-extending": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "@abp/json": "workspace:*"
+  }
+}
