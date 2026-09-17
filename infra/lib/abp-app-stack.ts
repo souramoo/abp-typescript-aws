@@ -16,14 +16,23 @@ import { RetentionDays } from "aws-cdk-lib/aws-logs";
 import type { Construct } from "constructs";
 import { join } from "node:path";
 
+export type AbpDeploymentTopology = "mono" | "split";
+
 export interface AbpAppStackProps extends StackProps {
   stage: string;
   /** Directory of the application package (contains src/handlers/*.ts). */
   appDir: string;
+  /**
+   * `mono` (default): one Lambda serves every HTTP route, both SQS queues and the schedule (`handlers/mono.ts`),
+   * autoscaling as a unit. `split`: separate api/jobs/events/workers functions for per-workload tuning.
+   */
+  deployment?: AbpDeploymentTopology;
+  /** Optional reserved concurrency for the mono function (unset = account-level autoscaling). */
+  reservedConcurrentExecutions?: number;
 }
 
 /**
- * Serverless topology for an ABP application:
+ * Serverless topology for an ABP application (mono-lambda by default: the four roles below run in ONE function):
  *  API Gateway HTTP API → api Lambda (all HTTP routes)
  *  DynamoDB single table (entities, settings, permissions, audit logs, cache, locks, outbox/inbox)
  *  SQS jobs queue → jobs Lambda (IBackgroundJobManager)
@@ -35,6 +44,7 @@ export class AbpAppStack extends Stack {
   constructor(scope: Construct, id: string, props: AbpAppStackProps) {
     super(scope, id, props);
     const { stage, appDir } = props;
+    const deployment: AbpDeploymentTopology = props.deployment ?? "mono";
     const isProd = stage === "prod";
 
     const table = new Table(this, "Table", {
@@ -92,8 +102,9 @@ export class AbpAppStack extends Stack {
       NODE_OPTIONS: "--enable-source-maps",
     };
 
-    const fn = (name: string, entryFile: string, extra?: { timeout?: Duration; memory?: number }) =>
+    const fn = (name: string, entryFile: string, extra?: { timeout?: Duration; memory?: number; reservedConcurrentExecutions?: number }) =>
       new NodejsFunction(this, name, {
+        reservedConcurrentExecutions: extra?.reservedConcurrentExecutions,
         entry: join(appDir, "src", "handlers", entryFile),
         handler: "handler",
         runtime: Runtime.NODEJS_22_X,
@@ -120,21 +131,34 @@ export class AbpAppStack extends Stack {
         },
       });
 
-    const api = fn("ApiFunction", "api.ts");
-    const jobs = fn("JobsFunction", "jobs.ts", { timeout: Duration.minutes(5) });
-    const events = fn("EventsFunction", "events.ts", { timeout: Duration.minutes(5) });
-    const workers = fn("WorkersFunction", "workers.ts", { timeout: Duration.minutes(5) });
-
-    for (const f of [api, jobs, events, workers]) {
+    const grant = (f: NodejsFunction) => {
       table.grantReadWriteData(f);
       blobs.grantReadWrite(f);
       jobsQueue.grantSendMessages(f);
       eventsTopic.grantPublish(f);
       jwtSecret.grantRead(f);
+    };
+    const jobsSource = () => new SqsEventSource(jobsQueue, { batchSize: 10, reportBatchItemFailures: true });
+    const eventsSource = () => new SqsEventSource(eventsQueue, { batchSize: 10, reportBatchItemFailures: true });
+
+    let api: NodejsFunction;
+    if (deployment === "mono") {
+      const mono = fn("MonoFunction", "mono.ts", { timeout: Duration.seconds(29), reservedConcurrentExecutions: props.reservedConcurrentExecutions });
+      grant(mono);
+      mono.addEventSource(jobsSource());
+      mono.addEventSource(eventsSource());
+      new Rule(this, "WorkersSchedule", { schedule: Schedule.rate(Duration.minutes(1)), targets: [new LambdaFunction(mono)] });
+      api = mono;
+    } else {
+      api = fn("ApiFunction", "api.ts");
+      const jobs = fn("JobsFunction", "jobs.ts", { timeout: Duration.minutes(5) });
+      const events = fn("EventsFunction", "events.ts", { timeout: Duration.minutes(5) });
+      const workers = fn("WorkersFunction", "workers.ts", { timeout: Duration.minutes(5) });
+      for (const f of [api, jobs, events, workers]) grant(f);
+      jobs.addEventSource(jobsSource());
+      events.addEventSource(eventsSource());
+      new Rule(this, "WorkersSchedule", { schedule: Schedule.rate(Duration.minutes(1)), targets: [new LambdaFunction(workers)] });
     }
-    jobs.addEventSource(new SqsEventSource(jobsQueue, { batchSize: 10, reportBatchItemFailures: true }));
-    events.addEventSource(new SqsEventSource(eventsQueue, { batchSize: 10, reportBatchItemFailures: true }));
-    new Rule(this, "WorkersSchedule", { schedule: Schedule.rate(Duration.minutes(1)), targets: [new LambdaFunction(workers)] });
 
     const httpApi = new HttpApi(this, "HttpApi", {
       corsPreflight: {
@@ -147,6 +171,7 @@ export class AbpAppStack extends Stack {
     httpApi.addRoutes({ path: "/", methods: [HttpMethod.ANY], integration: new HttpLambdaIntegration("RootIntegration", api) });
 
     new CfnOutput(this, "ApiUrl", { value: httpApi.apiEndpoint });
+    new CfnOutput(this, "Deployment", { value: deployment });
     new CfnOutput(this, "TableName", { value: table.tableName });
     new CfnOutput(this, "BlobBucket", { value: blobs.bucketName });
   }

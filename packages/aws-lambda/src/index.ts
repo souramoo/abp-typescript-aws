@@ -22,3 +22,4 @@ export * from "./modules.js";
 export * from "./hosting/abp-http-host.js";
 export * from "./hosting/api-gateway.js";
 export * from "./hosting/local-server.js";
+export * from "./hosting/mono-lambda.js";

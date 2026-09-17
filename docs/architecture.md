@@ -52,7 +52,11 @@ authorization stack are ported unchanged.
 `TemplateAppModule` wires the framework hosting modules and every application module's domain/application/HTTP API
 layers; `TemplateAppHostModule` adds the DynamoDB layers and AWS providers, `TemplateAppLocalModule` the memory-db layers
 and in-process providers. `src/application.ts` builds the configuration (`appsettings.json`, `appsettings.<env>.json`,
-`ABP__*` environment variables) and creates one initialized application per Lambda container; the handlers in
-`src/handlers` (`api`, `jobs`, `events`, `workers`) are the four Lambda entry points the CDK stack in `infra/` deploys.
+`ABP__*` environment variables) and creates one initialized application per Lambda container. The CDK stack in
+`infra/` deploys it as a **mono-lambda** by default: `src/handlers/mono.ts` is the single entry point and
+`createMonoLambdaHandler` (in `@abp/aws-lambda`) dispatches each invocation by event shape — API Gateway HTTP API v2
+→ the HTTP pipeline, SQS records → the jobs or events consumer (chosen by queue name), EventBridge schedule or a
+direct `{ "abp": "workers" }` invoke → one workers tick. The alternative **split** topology (`-c deployment=split`)
+uses the per-role handlers `api`, `jobs`, `events` and `workers` so each workload can be sized independently.
 `pnpm dev` serves the same pipeline over `node:http`; `pnpm seed` replaces the DbMigrator (see `docs/deploy.md`).
 

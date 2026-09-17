@@ -43,8 +43,8 @@ pnpm lint
 pnpm check          # all three
 pnpm dev            # templates/app on node:http with in-memory providers (PORT, ABP_DEV_DB=dynamodb-local)
 pnpm seed           # templates/app: run the data seeders against the configured database (replaces the .NET DbMigrator)
-pnpm synth          # infra: cdk synth (bundles the four Lambda handlers with esbuild, no credentials needed)
-pnpm deploy         # infra: cdk deploy
+pnpm synth          # infra: cdk synth (bundles the Lambda handler(s) with esbuild, no credentials needed)
+pnpm deploy         # infra: cdk deploy (mono-lambda by default; `-c deployment=split` for separate functions)
 pnpm --filter @abp/<name> test
 ```
 
@@ -64,6 +64,16 @@ Any configuration key can be set as `ABP__<Section>__<Key>` (`__` is the section
 | `ABP__EventBus__Aws__TopicArn` / `ABP__EventBus__Aws__QueueUrl` | SNS events topic and its SQS subscription |
 | `ABP_LOG_FORMAT` / `ABP_LOG_LEVEL` | `pretty` or `json`; `Debug`…`Error` |
 | `ABP_DEV_DB=dynamodb-local` + `AWS_ENDPOINT_URL_DYNAMODB` | `pnpm dev` against DynamoDB Local (creates the table) |
+
+## Deployment topologies
+
+- **Mono-lambda (default)**: one function (`templates/app/src/handlers/mono.ts`) serves every HTTP route through
+  API Gateway, consumes the jobs and events SQS queues, and runs the scheduled workers. It autoscales as a single
+  unit with API Gateway and SQS concurrency; set `reservedConcurrentExecutions` in `infra/bin/app.ts` to cap it.
+- **Split**: `cdk deploy -c deployment=split` (or `ABP_DEPLOYMENT=split`) deploys `api`, `jobs`, `events` and
+  `workers` as separate functions with their own timeouts and memory.
+
+Both topologies run the same application code; only the entry point differs.
 
 See `templates/app/.env.example`, [docs/deploy.md](./docs/deploy.md) for the AWS flow, [CLAUDE.md](./CLAUDE.md) for
 conventions, [docs/architecture.md](./docs/architecture.md) for the AWS design and

@@ -16,6 +16,21 @@ EventBridge ──▶ workers.ts   (every minute: outbox sender, inbox processor
 - Node 22+, pnpm, AWS credentials for the target account (`AWS_PROFILE` or environment variables).
 - One-time CDK bootstrap per account/region: `pnpm --filter @abp/infra exec cdk bootstrap aws://<account>/<region>`.
 
+## Topology: mono-lambda (default) or split
+
+The stack deploys a single `MonoFunction` unless told otherwise: it is the API Gateway integration for `/` and
+`/{proxy+}`, the consumer of both SQS queues, and the target of the one-minute EventBridge rule. It scales with
+incoming traffic like any Lambda; the only knob is `reservedConcurrentExecutions` (optional, in `infra/bin/app.ts`).
+
+```
+pnpm synth                              # mono
+pnpm --filter @abp/infra cdk synth -c deployment=split   # api + jobs + events + workers functions
+ABP_DEPLOYMENT=split pnpm deploy        # same via environment
+```
+
+Switching topology later is a normal `cdk deploy`; data and queues are unaffected because both use the same
+application code and configuration.
+
 ## Synthesize and deploy
 
 ```
