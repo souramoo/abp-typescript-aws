@@ -11,7 +11,9 @@
     "./application-contracts": "./src/application-contracts/index.ts",
     "./application": "./src/application/index.ts",
     "./http-api": "./src/http-api/index.ts",
-    "./dynamodb": "./src/dynamodb/index.ts"
+    "./dynamodb": "./src/dynamodb/index.ts",
+    "./memory-db": "./src/memory-db/index.ts",
+    "./auth": "./src/auth/index.ts"
   },
   "types": "./src/index.ts",
   "scripts": {
@@ -48,6 +50,15 @@
     "@abp/background-jobs": "workspace:*",
     "@abp/emailing": "workspace:*",
     "@abp/sms": "workspace:*",
-    "@abp/text-templating": "workspace:*"
+    "@abp/text-templating": "workspace:*",
+    "@abp/memory-db": "workspace:*",
+    "@abp/json": "workspace:*",
+    "@abp/distributed-locking": "workspace:*",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@abp/test-base": "workspace:*",
+    "@aws-sdk/client-dynamodb": "^3.1133.0",
+    "@aws-sdk/lib-dynamodb": "^3.1133.0"
   }
 }

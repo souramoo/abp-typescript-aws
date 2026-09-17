@@ -32,6 +32,17 @@
     "@abp/text-templating": "workspace:*",
     "@abp/object-extending": "workspace:*",
     "@abp/uow": "workspace:*",
-    "@abp/guids": "workspace:*"
+    "@abp/guids": "workspace:*",
+    "@abp/ddd-domain": "workspace:*",
+    "@abp/users": "workspace:*",
+    "@abp/event-bus": "workspace:*",
+    "@abp/object-mapping": "workspace:*",
+    "@abp/data": "workspace:*",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@abp/test-base": "workspace:*",
+    "@abp/permission-management": "workspace:*",
+    "@abp/memory-db": "workspace:*"
   }
 }

@@ -53,15 +53,15 @@ Status legend: ✅ ported · 🚧 in progress · ⏭ out of scope (UI, .NET-only
 
 | module               | @abp/*                | Status |
 |----------------------|-----------------------|--------|
-| users                | users                 | 🚧 |
-| identity             | identity              | 🚧 |
+| users                | users                 | ✅ |
+| identity             | identity              | ✅ |
 | permission-management| permission-management | 🚧 |
-| setting-management   | setting-management    | 🚧 |
-| feature-management   | feature-management    | 🚧 |
-| tenant-management    | tenant-management     | 🚧 |
-| audit-logging        | audit-logging         | 🚧 |
-| background-jobs      | background-jobs-store | 🚧 |
-| account              | account               | 🚧 |
-| openiddict / identityserver | auth-jwt (framework) | 🚧 |
+| setting-management   | setting-management    | ✅ |
+| feature-management   | feature-management    | ✅ |
+| tenant-management    | tenant-management     | ✅ |
+| audit-logging        | audit-logging         | ✅ |
+| background-jobs      | background-jobs-store | ✅ |
+| account              | account               | ✅ |
+| openiddict / identityserver | auth-jwt (framework) | ✅ |
 | blob-storing-database| —                     | ⏭ (S3) |
 | basic-theme, cms-kit, blogging, docs, virtual-file-explorer, client-simulation | — | ⏭ UI/content |
