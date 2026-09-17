@@ -5,7 +5,7 @@ packages:
   - "infra"
 
 allowBuilds:
-  esbuild: true
+  esbuild: false
   "@aws-sdk/*": false
 
 minimumReleaseAge: 0

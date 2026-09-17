@@ -133,7 +133,11 @@ export interface ConfigurationBuilderOptions {
   basePath?: string;
   fileName?: string;
   environmentName?: string;
-  /** Prefix filter for environment variables (`""` = all). */
+  /**
+   * Environment variables are always loaded as they are (`Abp__Auth__Jwt__Issuer` → `Abp:Auth:Jwt:Issuer`); those
+   * starting with this prefix are loaded a second time with the prefix removed, so the deployment convention
+   * `ABP__<Section>__<Key>` (`ABP__ConnectionStrings__Default` → `ConnectionStrings:Default`) works too. Default: `ABP__`.
+   */
   environmentVariablesPrefix?: string;
 }
 
@@ -178,7 +182,9 @@ export class ConfigurationBuilder {
     this.addJsonFile(resolve(base, `${name}.json`));
     this.addJsonFile(resolve(base, `${name}.${env}.json`));
     this.addJsonFile(resolve(base, `${name}.secrets.json`));
-    this.addEnvironmentVariables(options.environmentVariablesPrefix ?? "");
+    this.addEnvironmentVariables("");
+    const prefix = options.environmentVariablesPrefix ?? "ABP__";
+    if (prefix !== "") this.addEnvironmentVariables(prefix);
     return this;
   }
 

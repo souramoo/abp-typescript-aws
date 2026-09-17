@@ -45,3 +45,14 @@ Users, roles, claims, permissions live in the Identity / PermissionManagement mo
 Tokens: `@abp/auth-jwt` issues JWTs (password and refresh_token grants, RS256/HS256) and validates them; the same
 principal accessor can validate Cognito-issued JWTs (JWKS). `ICurrentUser`, `IPermissionChecker` and the rest of the
 authorization stack are ported unchanged.
+
+## Application template
+
+`templates/app` is the port of the ABP app startup template (`HttpApi.Host` + `DbMigrator` + the tutorial book store):
+`TemplateAppModule` wires the framework hosting modules and every application module's domain/application/HTTP API
+layers; `TemplateAppHostModule` adds the DynamoDB layers and AWS providers, `TemplateAppLocalModule` the memory-db layers
+and in-process providers. `src/application.ts` builds the configuration (`appsettings.json`, `appsettings.<env>.json`,
+`ABP__*` environment variables) and creates one initialized application per Lambda container; the handlers in
+`src/handlers` (`api`, `jobs`, `events`, `workers`) are the four Lambda entry points the CDK stack in `infra/` deploys.
+`pnpm dev` serves the same pipeline over `node:http`; `pnpm seed` replaces the DbMigrator (see `docs/deploy.md`).
+

@@ -40,8 +40,9 @@ export function validateMaxResultCount(dto: ILimitedResultRequest, maxMaxResultC
   return [createValidationResult(message, "maxResultCount")];
 }
 
-const limitedSchema = z.object({ maxResultCount: z.number().int().min(1) });
-const pagedSchema = limitedSchema.extend({ skipCount: z.number().int().min(0) });
+/** The zod defaults mirror the .NET property initializers (`MaxResultCount = DefaultMaxResultCount`, `SkipCount = 0`) so a query string may omit them. */
+const limitedSchema = z.object({ maxResultCount: z.number().int().min(1).default(10) });
+const pagedSchema = limitedSchema.extend({ skipCount: z.number().int().min(0).default(0) });
 const pagedAndSortedSchema = pagedSchema.extend({ sorting: z.string().nullish() });
 
 /** Port of `LimitedResultRequestDto` (`[Range(1, int.MaxValue)]` becomes the zod schema). */

@@ -4,11 +4,13 @@
   "private": true,
   "description": "Deployable ABP application template (port of the ABP app startup template) for AWS Lambda",
   "type": "module",
-  "exports": { ".": "./src/index.ts" },
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "types": "./src/index.ts",
   "scripts": {
-    "dev": "tsx src/local.ts",
-    "seed": "tsx src/seed.ts",
+    "dev": "tsx --tsconfig ../../tsconfig.json src/local.ts",
+    "seed": "tsx --tsconfig ../../tsconfig.json src/seed.ts",
     "test": "vitest run --root ../.. templates/app",
     "deploy": "pnpm --filter @abp/infra deploy",
     "synth": "pnpm --filter @abp/infra synth"
@@ -61,11 +63,14 @@
     "@abp/audit-logging": "workspace:*",
     "@abp/background-jobs-store": "workspace:*",
     "@abp/account": "workspace:*",
-    "zod": "^4.6.5"
+    "zod": "^4.6.5",
+    "@abp/http": "workspace:*",
+    "@aws-sdk/client-secrets-manager": "^3.1133.0"
   },
   "devDependencies": {
     "@abp/test-base": "workspace:*",
     "@types/aws-lambda": "^8.10.163",
-    "tsx": "^4.23.13"
+    "tsx": "^4.23.13",
+    "aws-sdk-client-mock": "^4.1.0"
   }
 }

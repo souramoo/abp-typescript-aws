@@ -65,3 +65,10 @@ Status legend: ✅ ported · 🚧 in progress · ⏭ out of scope (UI, .NET-only
 | openiddict / identityserver | auth-jwt (framework) | ✅ |
 | blob-storing-database| —                     | ⏭ (S3) |
 | basic-theme, cms-kit, blogging, docs, virtual-file-explorer, client-simulation | — | ⏭ UI/content |
+
+## Templates (`../abp/templates` → `templates/`)
+
+| template | package               | Status |
+|----------|-----------------------|--------|
+| app (HttpApi.Host + DbMigrator + tutorial book store) | @abp/template-app + infra (CDK) | ✅ |
+| app-nolayers, module, microservice, console, maui | — | ⏭ |

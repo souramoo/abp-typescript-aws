@@ -16,6 +16,8 @@
     "lint": "eslint .",
     "build": "pnpm -r --filter './packages/**' --filter './modules/**' run build",
     "dev": "pnpm --filter @abp/template-app dev",
+    "seed": "pnpm --filter @abp/template-app seed",
+    "synth": "pnpm --filter @abp/infra synth",
     "deploy": "pnpm --filter @abp/template-app deploy",
     "check": "pnpm typecheck && pnpm test && pnpm lint"
   },

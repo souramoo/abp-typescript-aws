@@ -80,8 +80,9 @@ export class AbpAppStack extends Stack {
     });
 
     const environment: Record<string, string> = {
-      ABP_ENVIRONMENT: isProd ? "Production" : "Development",
+      ABP_ENVIRONMENT: isProd ? "Production" : "Staging",
       ABP_LOG_FORMAT: "json",
+      ABP__App__Database: "DynamoDb",
       ABP__ConnectionStrings__Default: table.tableName,
       ABP__BlobStoring__Aws__BucketName: blobs.bucketName,
       ABP__BackgroundJobs__Aws__QueueUrl: jobsQueue.queueUrl,
@@ -110,6 +111,12 @@ export class AbpAppStack extends Stack {
           mainFields: ["module", "main"],
           banner: "import { createRequire } from 'module'; const require = createRequire(import.meta.url);",
           externalModules: ["@aws-sdk/*"],
+          forceDockerBundling: false,
+          commandHooks: {
+            beforeBundling: () => [],
+            beforeInstall: () => [],
+            afterBundling: (_inputDir: string, outputDir: string) => [`cp ${join(appDir, "appsettings.json")} ${join(appDir, "appsettings.Production.json")} ${join(appDir, "appsettings.Staging.json")} ${outputDir}/ 2>/dev/null || true`],
+          },
         },
       });
 
