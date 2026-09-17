@@ -55,7 +55,7 @@ Status legend: ✅ ported · 🚧 in progress · ⏭ out of scope (UI, .NET-only
 |----------------------|-----------------------|--------|
 | users                | users                 | ✅ |
 | identity             | identity              | ✅ |
-| permission-management| permission-management | 🚧 |
+| permission-management| permission-management | ✅ |
 | setting-management   | setting-management    | ✅ |
 | feature-management   | feature-management    | ✅ |
 | tenant-management    | tenant-management     | ✅ |
