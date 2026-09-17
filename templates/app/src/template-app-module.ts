@@ -28,6 +28,7 @@ import { AbpPermissionManagementHttpApiModule } from "@abp/permission-management
 import { AbpSettingManagementApplicationModule } from "@abp/setting-management/application";
 import { AbpSettingManagementHttpApiModule } from "@abp/setting-management/http-api";
 import { AbpSmsModule } from "@abp/sms";
+import { AbpSwaggerGenOptions, AbpSwaggerUIOptions, AbpSwashbuckleModule } from "@abp/swashbuckle";
 import { AbpTenantManagementApplicationModule } from "@abp/tenant-management/application";
 import { AbpTenantManagementHttpApiModule } from "@abp/tenant-management/http-api";
 import { AbpValidationResource } from "@abp/validation";
@@ -71,6 +72,7 @@ export const templateAppLanguages: readonly LanguageInfo[] = [
   AbpAspNetCoreMvcModule,
   AbpAspNetCoreMultiTenancyModule,
   AbpAspNetCoreAuthenticationJwtBearerModule,
+  AbpSwashbuckleModule,
   AbpDddApplicationModule,
   AbpCachingModule,
   AbpBlobStoringModule,
@@ -130,6 +132,15 @@ export class TemplateAppModule extends AbpModule {
 
     this.configure(AbpObjectMappingOptions, (options) => {
       options.addProfile(TemplateAppMappingProfile);
+    });
+
+    this.configure(AbpSwaggerGenOptions, (options) => {
+      options.swaggerDoc("v1", { title: "TemplateApp API", version: "v1" });
+      options.hideAbpEndpoints = false;
+    });
+    this.configure(AbpSwaggerUIOptions, (options) => {
+      options.documentTitle = "TemplateApp API";
+      options.oauthClientId = TemplateAppClientId;
     });
   }
 }

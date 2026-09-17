@@ -34,6 +34,15 @@ Everything ABP exposes is there: `/connect/token` (password, refresh_token, clie
 `/api/identity/*`, `/api/account/*`, `/api/permission-management/*`, `/api/setting-management/*`, `/api/feature-management/*`,
 `/api/multi-tenancy/*`, plus the sample `/api/app/books`.
 
+## Swagger / OpenAPI
+
+`@abp/swashbuckle` (port of `Volo.Abp.Swashbuckle`) serves the Swagger UI at `/swagger` and the OpenAPI 3.0 document at
+`/swagger/v1/swagger.json`, generated from the controller decorators (`@Controller`, `@HttpGet(...)`, `route()`/`query()`/`body()`
+bindings, the DTOs' zod schemas and `@Produces(Dto)` for response types). The UI assets come from the swagger-ui-dist CDN
+(no static files on Lambda). Click **Authorize**, keep the pre-filled client `TemplateApp_App`, and sign in with
+`admin` / `1q2w3E*` through the `oauth2` password flow against `/connect/token` (or paste a token into the `bearer` scheme);
+the `__tenant` box above the UI sends the tenant header with every request.
+
 ## Commands
 
 ```

@@ -4,6 +4,19 @@ import { z } from "zod";
 import { BookType } from "./book.js";
 
 export class BookDto extends AuditedEntityDto<Guid> {
+  /** Describes the response for the OpenAPI document (`@Produces(BookDto)`); the DTO itself is never validated. */
+  static readonly schema = z.object({
+    id: z.uuid(),
+    name: z.string(),
+    type: z.nativeEnum(BookType),
+    publishDate: z.date(),
+    price: z.number(),
+    creationTime: z.date(),
+    creatorId: z.uuid().nullish(),
+    lastModificationTime: z.date().nullish(),
+    lastModifierId: z.uuid().nullish(),
+  });
+
   name = "";
   type = BookType.Undefined;
   publishDate: Date = new Date(0);

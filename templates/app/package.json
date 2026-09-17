@@ -19,6 +19,7 @@
     "@abp/core": "workspace:*",
     "@abp/aws-lambda": "workspace:*",
     "@abp/auth-jwt": "workspace:*",
+    "@abp/swashbuckle": "workspace:*",
     "@abp/ddd-domain": "workspace:*",
     "@abp/ddd-application": "workspace:*",
     "@abp/dynamodb": "workspace:*",

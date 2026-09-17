@@ -1492,6 +1492,27 @@ importers:
         specifier: workspace:*
         version: link:../core
 
+  packages/swashbuckle:
+    dependencies:
+      '@abp/authorization':
+        specifier: workspace:*
+        version: link:../authorization
+      '@abp/aws-lambda':
+        specifier: workspace:*
+        version: link:../aws-lambda
+      '@abp/core':
+        specifier: workspace:*
+        version: link:../core
+      '@abp/http':
+        specifier: workspace:*
+        version: link:../http
+      '@abp/localization':
+        specifier: workspace:*
+        version: link:../localization
+      zod:
+        specifier: ^4.6.5
+        version: 4.6.5
+
   packages/test-base:
     dependencies:
       '@abp/core':
@@ -1665,6 +1686,9 @@ importers:
       '@abp/sms-aws':
         specifier: workspace:*
         version: link:../../packages/sms-aws
+      '@abp/swashbuckle':
+        specifier: workspace:*
+        version: link:../../packages/swashbuckle
       '@abp/tenant-management':
         specifier: workspace:*
         version: link:../../modules/tenant-management

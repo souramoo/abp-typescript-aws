@@ -42,7 +42,7 @@ Status legend: ✅ ported · 🚧 in progress · ⏭ out of scope (UI, .NET-only
 | AspNetCore / AspNetCore.Mvc(.Contracts)      | aws-lambda (+ http)          | ✅ |
 | AspNetCore.Authentication.JwtBearer          | auth-jwt                     | ✅ |
 | AspNetCore.MultiTenancy                      | aws-lambda (tenant resolvers)| ✅ |
-| Swashbuckle                                  | http (OpenAPI generation)    | 🚧 |
+| Swashbuckle                                  | swashbuckle                  | ✅ |
 | TestBase / AspNetCore.TestBase               | test-base                    | ✅ |
 | Cli / Cli.Core / Studio                      | cli (scaffolding only)       | ⏭ later |
 | AspNetCore.Mvc.UI.*, Components.*, Blazor*, MudBlazor*, Bundling, Minify, Widgets, Theme.* | — | ⏭ UI |

@@ -1,0 +1,23 @@
+{
+  "name": "@abp/swashbuckle",
+  "version": "0.1.0",
+  "description": "Port of Volo.Abp.Swashbuckle: OpenAPI 3 document generation from the controller route table and the Swagger UI page",
+  "license": "LGPL-3.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root ../.. packages/swashbuckle"
+  },
+  "dependencies": {
+    "@abp/core": "workspace:*",
+    "@abp/aws-lambda": "workspace:*",
+    "@abp/authorization": "workspace:*",
+    "@abp/http": "workspace:*",
+    "@abp/localization": "workspace:*",
+    "zod": "^4.6.5"
+  }
+}

@@ -7,6 +7,7 @@ import type { PagedResultDto } from "@abp/ddd-application";
 import { IdentityUser, IdentityUserManager } from "@abp/identity/domain";
 import type { IdentityUserDto } from "@abp/identity/application-contracts";
 import { ITenantRepository } from "@abp/tenant-management/domain";
+import type { OpenApiDocument } from "@abp/swashbuckle";
 import { IUnitOfWorkManager } from "@abp/uow";
 import { createLocalApplication } from "../src/application.js";
 import { BookType, TemplateAppPermissions, type BookDto } from "../src/books/index.js";
@@ -191,5 +192,37 @@ describe("multi-tenancy", () => {
     const response = await call({ method: "GET", path: "/api/abp/application-configuration", headers: { __tenant: "nobody" } });
     expect(response.status).toBe(404);
     expect(response.headers["abp-tenant-resolve-error"]).toBeDefined();
+  });
+});
+
+describe("Swagger / OpenAPI", () => {
+  it("publishes the OpenAPI document of every controller with the ABP security schemes", async () => {
+    const response = await host.handle({ method: "GET", path: "/swagger/v1/swagger.json" });
+    expect(response.statusCode).toBe(200);
+    const document = JSON.parse(response.bodyText) as OpenApiDocument;
+    expect(document.info).toEqual({ title: "TemplateApp API", version: "v1" });
+    expect(Object.keys(document.paths)).toEqual(expect.arrayContaining(["/api/app/books", "/api/app/books/{id}", "/api/identity/users", "/connect/token", "/api/abp/application-configuration"]));
+
+    const create = document.paths["/api/app/books"]?.post;
+    expect(create?.requestBody?.content["application/json"]?.schema).toEqual({ $ref: "#/components/schemas/CreateUpdateBookDto" });
+    expect(create?.responses["200"]?.content?.["application/json"]?.schema).toEqual({ $ref: "#/components/schemas/BookDto" });
+    expect(document.components.schemas["BookDto"]?.properties?.["type"]).toMatchObject({ enum: [0, 1, 2, 3, 4, 5, 6, 7, 8], "x-enumNames": ["Undefined", "Adventure", "Biography", "Dystopia", "Fantasy", "Horror", "Science", "ScienceFiction", "Poetry"] });
+    expect(document.paths["/api/app/books/{id}"]?.delete?.responses["204"]).toBeDefined();
+
+    const list = document.paths["/api/app/books"]?.get;
+    expect(list?.parameters?.map((parameter) => parameter.name)).toEqual(expect.arrayContaining(["skipCount", "maxResultCount", "sorting"]));
+    expect(list?.responses["200"]?.content?.["application/json"]?.schema).toEqual({ $ref: "#/components/schemas/PagedResultDtoOfBookDto" });
+
+    const oauth2 = document.components.securitySchemes?.["oauth2"];
+    expect(oauth2?.type === "oauth2" && oauth2.flows.password?.tokenUrl).toBe("/connect/token");
+  });
+
+  it("serves the Swagger UI page configured for the TemplateApp OAuth client", async () => {
+    const response = await host.handle({ method: "GET", path: "/swagger" });
+    expect(response.statusCode).toBe(200);
+    expect(response.headers.get("content-type")).toContain("text/html");
+    expect(response.bodyText).toContain("SwaggerUIBundle");
+    expect(response.bodyText).toContain("/swagger/v1/swagger.json");
+    expect(response.bodyText).toContain(TemplateAppClientId);
   });
 });
