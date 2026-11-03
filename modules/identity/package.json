@@ -54,7 +54,7 @@
     "@abp/memory-db": "workspace:*",
     "@abp/json": "workspace:*",
     "@abp/distributed-locking": "workspace:*",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@abp/test-base": "workspace:*",

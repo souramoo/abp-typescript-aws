@@ -38,7 +38,7 @@
     "@abp/event-bus": "workspace:*",
     "@abp/object-mapping": "workspace:*",
     "@abp/data": "workspace:*",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@abp/test-base": "workspace:*",

@@ -43,7 +43,7 @@
     "@abp/distributed-locking": "workspace:*",
     "@abp/object-extending": "workspace:*",
     "@abp/json": "workspace:*",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@abp/test-base": "workspace:*"

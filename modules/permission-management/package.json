@@ -44,7 +44,7 @@
     "@abp/object-mapping": "workspace:*",
     "@abp/features": "workspace:*",
     "@abp/users": "workspace:*",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@abp/test-base": "workspace:*",

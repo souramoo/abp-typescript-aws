@@ -16,6 +16,6 @@
     "@abp/core": "workspace:*",
     "@abp/localization": "workspace:*",
     "@abp/validation": "workspace:*",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   }
 }
