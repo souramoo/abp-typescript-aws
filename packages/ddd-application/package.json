@@ -30,7 +30,7 @@
     "@abp/timing": "workspace:*",
     "@abp/uow": "workspace:*",
     "@abp/object-extending": "workspace:*",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@abp/memory-db": "workspace:*",

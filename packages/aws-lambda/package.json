@@ -31,6 +31,6 @@
     "@abp/data": "workspace:*",
     "@abp/object-extending": "workspace:*",
     "@types/aws-lambda": "^8.10.163",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   }
 }

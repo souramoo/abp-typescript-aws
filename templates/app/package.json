@@ -64,7 +64,7 @@
     "@abp/audit-logging": "workspace:*",
     "@abp/background-jobs-store": "workspace:*",
     "@abp/account": "workspace:*",
-    "zod": "^4.6.5",
+    "zod": "^4.6.6",
     "@abp/http": "workspace:*",
     "@aws-sdk/client-secrets-manager": "^3.1133.0"
   },

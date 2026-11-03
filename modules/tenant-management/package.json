@@ -42,7 +42,7 @@
     "@abp/object-mapping": "workspace:*",
     "@abp/object-extending": "workspace:*",
     "@abp/features": "workspace:*",
-    "zod": "^4.6.5"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@abp/test-base": "workspace:*"
